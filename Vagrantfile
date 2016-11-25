@@ -11,14 +11,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "2048"
      vb.cpus = 2
+     vb.gui = true
   end
 
-
-  config.vm.define "Ubuntu 10.04 (64 bit)" do |box|
-    box.vm.box = "f500/ubuntu-lucid64"
-    config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
-  end
 
   config.vm.define "Ubuntu 12.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
@@ -30,6 +25,14 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1404-desktop"
     config.vm.provision "shell", path: "provision/keymap-localectl.sh"
     config.vm.provision "shell", path: "provision/timezone-debian.sh"
+  end
+
+  config.vm.define "Ubuntu 16.04 (32 bit)" do |box|
+    box.vm.box = "boxcutter/ubuntu1604-i386"
+    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    config.vm.provision "shell", path: "provision/timezone-debian.sh"
+    config.vm.provision "shell", path: "provision/install-desktop-ubuntu.sh"
+    config.vm.provision "shell", path: "provision/autologin-lightdm.sh"
   end
 
   config.vm.define "Ubuntu 16.04 (64 bit)" do |box|
@@ -50,26 +53,45 @@ Vagrant.configure("2") do |config|
   # Fedora
   config.vm.define "Fedora 23 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora23"
-    config.vm.provision "shell", path: "provision-fedora.sh"
+
+    config.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
+    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+
+    config.vm.provision "shell", inline: "systemctl enable sshd.service"
   end
 
   config.vm.define "Fedora 24 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora24"
-    config.vm.provision "shell", path: "provision-fedora.sh"
+
+    config.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
+    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
   end
 
 
   # CentOS
+  config.vm.define "CentOS 6 (32 bit)" do |box|
+    box.vm.box = "boxcutter/centos68-i386"
+    config.vm.provision "shell", path: "provision/install-desktop-centos6.sh"
+    config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
+    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+  end
+
   config.vm.define "CentOS 6 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos68-desktop"
     config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
     config.vm.provision "shell", path: "provision/timezone-redhat.sh"
-    config.vm.provision "shell", path: "provision/autologin-gdm2.sh"
+    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
   end
 
   config.vm.define "CentOS 7 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos72-desktop"
-    config.vm.provision "shell", path: "provision-fedora.sh"
+    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
   end
 
 
@@ -80,6 +102,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Windows 7 Enterprise (64 bit)" do |box|
     box.vm.box = "eval-win7x64-enterprise-nocm"
+    box.vm.provision "shell", path: "provision/keymap-windows.ps1"
+  end
+
+  config.vm.define "Windows 10 Enterprise (64 bit)" do |box|
+    box.vm.box = "inclusivedesign/windows10-eval"
   end
 
 end
