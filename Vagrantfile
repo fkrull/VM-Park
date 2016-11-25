@@ -96,7 +96,7 @@ Vagrant.configure("2") do |config|
 
 
   # Windows
-  config.vm.define "Windows XP Pro (32 bit)" do |box|
+  config.vm.define "Windows XP Professional (32 bit)" do |box|
     box.vm.box = "winxp32-professional"
   end
 
@@ -107,6 +107,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Windows 10 Enterprise (64 bit)" do |box|
     box.vm.box = "inclusivedesign/windows10-eval"
+    box.vm.provision "shell", path: "provision/keymap-windows.ps1"
   end
 
 end
