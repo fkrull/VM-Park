@@ -12,41 +12,42 @@ Vagrant.configure("2") do |config|
      vb.memory = "2048"
      vb.cpus = 2
      vb.gui = true
+     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
   end
 
 
   config.vm.define "Ubuntu 12.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
-    config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
+    box.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
+    box.vm.provision "shell", path: "provision/timezone-debian.sh"
   end
 
   config.vm.define "Ubuntu 14.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1404-desktop"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-debian.sh"
   end
 
   config.vm.define "Ubuntu 16.04 (32 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1604-i386"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
-    config.vm.provision "shell", path: "provision/install-desktop-ubuntu.sh"
-    config.vm.provision "shell", path: "provision/autologin-lightdm.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-debian.sh"
+    box.vm.provision "shell", path: "provision/install-desktop-ubuntu.sh"
+    box.vm.provision "shell", path: "provision/autologin-lightdm.sh"
   end
 
   config.vm.define "Ubuntu 16.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1604-desktop"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-debian.sh"
   end
 
 
   # Debian
   config.vm.define "Debian 8 (64 bit)" do |box|
     box.vm.box = "boxcutter/debian8-desktop"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-debian.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-debian.sh"
   end
 
 
@@ -54,44 +55,62 @@ Vagrant.configure("2") do |config|
   config.vm.define "Fedora 23 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora23"
 
-    config.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
-    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+    box.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
+    box.vm.provision "shell", path: "provision/enable-desktop-systemd.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    box.vm.provision "shell", path: "provision/autologin-gdm.sh"
 
-    config.vm.provision "shell", inline: "systemctl enable sshd.service"
+    box.vm.provision "shell", inline: "systemctl enable sshd.service"
   end
 
   config.vm.define "Fedora 24 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora24"
 
-    config.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
-    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
-    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+    box.vm.provision "shell", path: "provision/install-desktop-fedora.sh"
+    box.vm.provision "shell", path: "provision/enable-desktop-systemd.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    box.vm.provision "shell", path: "provision/autologin-gdm.sh"
   end
 
 
   # CentOS
   config.vm.define "CentOS 6 (32 bit)" do |box|
     box.vm.box = "boxcutter/centos68-i386"
-    config.vm.provision "shell", path: "provision/install-desktop-centos6.sh"
-    config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
-    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
-    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+    box.vm.provision "shell", path: "provision/install-desktop-centos6.sh"
+    box.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    box.vm.provision "shell", path: "provision/autologin-gdm.sh"
   end
 
   config.vm.define "CentOS 6 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos68-desktop"
-    config.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
-    config.vm.provision "shell", path: "provision/timezone-redhat.sh"
-    config.vm.provision "shell", path: "provision/autologin-gdm.sh"
+    box.vm.provision "shell", path: "provision/keymap-xorgconf.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    box.vm.provision "shell", path: "provision/autologin-gdm.sh"
   end
 
   config.vm.define "CentOS 7 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos72-desktop"
-    config.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
     box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+  end
+
+
+  # openSUSE
+  config.vm.define "openSUSE Leap 42.1 (64 bit)" do |box|
+    box.vm.box = "opensuse/openSUSE-42.1-x86_64"
+
+    #box.vm.provision "shell", inline: \
+    #    "zypper refresh && " \
+    #    "zypper --non-interactive install terminfo"
+
+    box.vm.provision "shell", path: "provision/install-desktop-opensuse-kde.sh"
+    box.vm.provision "shell", path: "provision/enable-desktop-systemd.sh"
+    box.vm.provision "shell", path: "provision/keymap-localectl.sh"
+    box.vm.provision "shell", path: "provision/timezone-redhat.sh"
+    box.vm.provision "shell", path: "provision/autologin-opensuse.sh"
   end
 
 
