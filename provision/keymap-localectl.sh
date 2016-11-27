@@ -1,3 +1,3 @@
 #!/bin/sh
-localectl set-keymap de
-localectl set-x11-keymap de
+localectl set-keymap $KEYMAP
+localectl set-x11-keymap $KEYMAP

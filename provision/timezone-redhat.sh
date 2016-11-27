@@ -1,2 +1,2 @@
 #!/bin/sh
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+ln -sf /usr/share/zoneinfo/$KEYMAP /etc/localtime
