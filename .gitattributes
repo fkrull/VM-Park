@@ -1,2 +1,5 @@
 * text=auto
+# Vagrant handles that, but better be sure.
 *.sh text eol=lf
+*.ps1 eol=crlf
+*.cmd eol=crlf
