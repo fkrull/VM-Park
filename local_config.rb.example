@@ -1,0 +1,8 @@
+Cpus = 2
+Memory = 2048
+Cpus = 2
+PublicDir = File.expand_path("~/Public")
+Env = {
+  "KEYMAP": "de",
+  "TIMEZONE": "Europe/Berlin"
+}
