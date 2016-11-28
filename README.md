@@ -25,4 +25,5 @@ repository root and setting configuration variables there. See
 `local_config.rb.example` for a sample file. Note that once you create a
 `local_config.rb`, it needs to define **all** settings. You can find the names
 and defaults of all available configurable settings at the top of the
-`Vagrantfile`.
+`Vagrantfile`. When in doubt, the `Vagrantfile`, rather than the sample, is
+authoritative.
