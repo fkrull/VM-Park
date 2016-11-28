@@ -27,27 +27,12 @@ rescue LoadError
 end
 
 
-def _define_park_vm(config, name)
-  current_box = ENV["VM_PARK_MACHINE"] or ""
-  is_primary = current_box == name
-  config.vm.define name, autostart: is_primary, primary: is_primary do |box|
-
-    def box.provision_park_vm(scripts)
-      for script in scripts
-        self.vm.provision "shell", path: "provision/" + script, env: Env
-      end
-    end
-
-    yield box
-  end
-end
+require_relative "VMParkHelper"
 
 
 Vagrant.configure("2") do |config|
-  def config.define_park_vm(name)
-    _define_park_vm(self, name) do |box|
-      yield box
-    end
+  def config.define_park_vm(name, &block)
+    _define_park_vm(self, name, block)
   end
 
 
