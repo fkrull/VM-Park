@@ -10,6 +10,10 @@ rescue LoadError
   Cpus = 2
   # Amount of memory.
   Memory = 2048
+  # Amount of video memory.
+  VRAM = 128
+  # Enable/disable 3D acceleration support.
+  Accelerate3D = true
   # Path to a "public" directory that's mounted at /Public.
   PublicDir = File.expand_path("~/Public")
   # Environment for the provisioning scripts.
@@ -35,6 +39,8 @@ Vagrant.configure("2") do |config|
      vb.cpus = Cpus
      vb.gui = true
      vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+     vb.customize ['modifyvm', :id, '--vram', VRAM]
+     vb.customize ['modifyvm', :id, '--accelerate3d', Accelerate3D ? 'on' : 'off']
   end
 
 
