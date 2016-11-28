@@ -85,6 +85,16 @@ Vagrant.configure("2") do |config|
 
 
   # Debian
+  config.vm.define "Debian 7 (64 bit)" do |box|
+    box.vm.box = "boxcutter/debian7"
+    provision box, [
+      "keymap-xorgconf.sh",
+      "timezone-debian.sh",
+      "install-desktop-debian7.sh",
+      "autologin-gdm3.sh",
+    ]
+  end
+
   config.vm.define "Debian 8 (64 bit)" do |box|
     box.vm.box = "boxcutter/debian8-desktop"
     provision box, [

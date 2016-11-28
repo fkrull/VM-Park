@@ -1,6 +1,6 @@
 #!/bin/sh
-mkdir -p /etc/gdm
-cat > /etc/gdm/custom.conf <<EOF
+mkdir -p /etc/gdm3
+cat > /etc/gdm3/daemon.conf <<EOF
 [daemon]
 AutomaticLogin=vagrant
 AutomaticLoginEnable=True
