@@ -1,2 +1,3 @@
 #!/bin/sh
-ln -sf /usr/share/zoneinfo/$KEYMAP /etc/localtime
+rm -rf /etc/localtime
+ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
