@@ -1,5 +1,5 @@
 module VMParkHelper
-  class Plugin < Vagrant.plugin("2")
+  class Plugin < Vagrant.plugin(2)
     name "VM Park Helper"
 
     config(:vmpark) do
@@ -7,9 +7,14 @@ module VMParkHelper
       Config
     end
 
-    action_hook(:vmpark_provisioner) do |hook|
-      require_relative "provision-helper"
-      hook.prepend(ProvisionHelperHook)
+    config(:vmpark, :provisioner) do
+      require_relative "provisioner_config"
+      ProvisionerConfig
+    end
+
+    provisioner(:vmpark) do
+      require_relative "provisioner"
+      Provisioner
     end
   end
 end

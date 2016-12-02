@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
   # Ubuntu
   config.vm.define "Ubuntu 12.04 (32 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1204-i386"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone-debian.sh",
       "install-desktop-ubuntu.sh",
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 12.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone-debian.sh",
     ]
@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 14.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1404-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
     ]
@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 16.04 (32 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1604-i386"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
       "install-desktop-ubuntu.sh",
@@ -87,7 +87,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 16.04 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1604-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
     ]
@@ -95,7 +95,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 16.10 (64 bit)" do |box|
     box.vm.box = "boxcutter/ubuntu1610-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
     ]
@@ -105,7 +105,7 @@ Vagrant.configure("2") do |config|
   # Debian
   config.vm.define "Debian 7 (64 bit)" do |box|
     box.vm.box = "boxcutter/debian7"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone-debian.sh",
       "install-desktop-debian7.sh",
@@ -115,7 +115,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian 8 (64 bit)" do |box|
     box.vm.box = "boxcutter/debian8-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
     ]
@@ -125,7 +125,7 @@ Vagrant.configure("2") do |config|
   # Fedora
   config.vm.define "Fedora 23 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora23"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "enable-desktop-systemd.sh",
       "keymap-localectl.sh",
@@ -137,7 +137,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 24 (64 bit)" do |box|
     box.vm.box = "boxcutter/fedora24"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "enable-desktop-systemd.sh",
       "keymap-localectl.sh",
@@ -150,7 +150,7 @@ Vagrant.configure("2") do |config|
   # CentOS
   config.vm.define "CentOS 6 (32 bit)" do |box|
     box.vm.box = "boxcutter/centos68-i386"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "install-desktop-centos6.sh",
       "keymap-xorgconf.sh",
       "timezone-redhat.sh",
@@ -160,7 +160,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "CentOS 6 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos68-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone-redhat.sh",
       "autologin-gdm.sh",
@@ -169,7 +169,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "CentOS 7 (64 bit)" do |box|
     box.vm.box = "boxcutter/centos72-desktop"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-redhat.sh",
     ]
@@ -179,7 +179,7 @@ Vagrant.configure("2") do |config|
   # openSUSE
   config.vm.define "openSUSE Leap 42.1 (64 bit)" do |box|
     box.vm.box = "opensuse/openSUSE-42.1-x86_64"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
       "enable-desktop-systemd.sh",
       "keymap-localectl.sh",
@@ -196,14 +196,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Windows 7 Enterprise (64 bit)" do |box|
     box.vm.box = "eval-win7x64-enterprise-nocm"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
     ]
   end
 
   config.vm.define "Windows 10 Enterprise (64 bit)" do |box|
     box.vm.box = "inclusivedesign/windows10-eval"
-    box.vmpark.scripts = [
+    box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
     ]
   end
