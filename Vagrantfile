@@ -93,6 +93,14 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Ubuntu 16.10 (64 bit)" do |box|
+    box.vm.box = "boxcutter/ubuntu1610-desktop"
+    box.vmpark.scripts = [
+      "keymap-localectl.sh",
+      "timezone-debian.sh",
+    ]
+  end
+
 
   # Debian
   config.vm.define "Debian 7 (64 bit)" do |box|
