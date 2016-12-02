@@ -5,7 +5,7 @@ module VMParkHelper
     attr_accessor :prefix
     attr_accessor :reload
 
-    def initialize(*)
+    def initialize
       super
       @scripts = UNSET_VALUE
       @env = UNSET_VALUE

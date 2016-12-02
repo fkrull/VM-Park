@@ -7,7 +7,7 @@ module VMParkHelper
       Config
     end
 
-    action_hook(:vmpark_provisioner, :machine_action_provision) do |hook|
+    action_hook(:vmpark_provisioner) do |hook|
       require_relative "provision-helper"
       hook.prepend(ProvisionHelperHook)
     end
