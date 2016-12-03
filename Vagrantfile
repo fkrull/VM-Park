@@ -125,7 +125,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/debian8"
 
     box.vm.provision :vmpark, scripts: [
-      "debian-unstable.sh",
+      "install-debian-unstable.sh",
       "install-desktop-debian-xfce.sh",
       "keymap-localectl.sh",
       "timezone-debian.sh",
