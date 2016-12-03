@@ -195,9 +195,26 @@ Vagrant.configure("2") do |config|
       "install-desktop-opensuse-kde.sh",
       "enable-desktop-systemd.sh",
       "keymap-localectl.sh",
-      "timezone-redhat.sh",
+      "timezone.sh",
       "autologin-opensuse.sh",
     ]
+  end
+
+
+  # elementary OS
+  config.vm.define "elementary OS (64 bit)" do |box|
+    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.provision :vmpark, scripts: [
+      "install-elementary.sh",
+      "install-desktop-elementary.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
   end
 
 
