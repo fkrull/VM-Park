@@ -108,7 +108,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone-debian.sh",
-      "install-desktop-debian7.sh",
+      "install-desktop-debian.sh",
       "autologin-gdm3.sh",
     ]
   end
@@ -118,6 +118,18 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone-debian.sh",
+    ]
+  end
+
+  config.vm.define "Debian Unstable (64 bit)" do |box|
+    box.vm.box = "boxcutter/debian8"
+
+    box.vm.provision :vmpark, scripts: [
+      "debian-unstable.sh",
+      "install-desktop-debian-xfce.sh",
+      "keymap-localectl.sh",
+      "timezone-debian.sh",
+      "autologin-lightdm.sh",
     ]
   end
 
