@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1204-i386"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
     ]
@@ -63,7 +63,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
     ]
   end
 
@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1404-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
     ]
   end
 
@@ -79,7 +79,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1604-i386"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
     ]
@@ -89,7 +89,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1604-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
     ]
   end
 
@@ -97,7 +97,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/ubuntu1610-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
     ]
   end
 
@@ -107,7 +107,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/debian7"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
       "install-desktop-debian.sh",
       "autologin-gdm3.sh",
     ]
@@ -117,7 +117,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/debian8-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
     ]
   end
 
@@ -128,7 +128,7 @@ Vagrant.configure("2") do |config|
       "install-debian-unstable.sh",
       "install-desktop-debian-xfce.sh",
       "keymap-localectl.sh",
-      "timezone-debian.sh",
+      "timezone-redhat.sh",
       "autologin-lightdm.sh",
     ]
   end
