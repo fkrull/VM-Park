@@ -59,7 +59,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Ubuntu 12.04 (64 bit)" do |box|
+  config.vm.define "Ubuntu 12.04" do |box|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Ubuntu 14.04 (64 bit)" do |box|
+  config.vm.define "Ubuntu 14.04" do |box|
     box.vm.box = "boxcutter/ubuntu1404-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Ubuntu 16.04 (64 bit)" do |box|
+  config.vm.define "Ubuntu 16.04" do |box|
     box.vm.box = "boxcutter/ubuntu1604-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -93,7 +93,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Ubuntu 16.10 (64 bit)" do |box|
+  config.vm.define "Ubuntu 16.10" do |box|
     box.vm.box = "boxcutter/ubuntu1610-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -103,7 +103,7 @@ Vagrant.configure("2") do |config|
 
 
   # Debian
-  config.vm.define "Debian 7 (64 bit)" do |box|
+  config.vm.define "Debian 7" do |box|
     box.vm.box = "boxcutter/debian7"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
@@ -113,7 +113,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Debian 8 (64 bit)" do |box|
+  config.vm.define "Debian 8" do |box|
     box.vm.box = "boxcutter/debian8-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Debian Unstable (64 bit)" do |box|
+  config.vm.define "Debian Unstable" do |box|
     box.vm.box = "boxcutter/debian8"
 
     box.vm.provision :vmpark, scripts: [
@@ -135,7 +135,7 @@ Vagrant.configure("2") do |config|
 
 
   # Fedora
-  config.vm.define "Fedora 23 (64 bit)" do |box|
+  config.vm.define "Fedora 23" do |box|
     box.vm.box = "boxcutter/fedora23"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -147,7 +147,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision "shell", inline: "systemctl enable sshd.service"
   end
 
-  config.vm.define "Fedora 24 (64 bit)" do |box|
+  config.vm.define "Fedora 24" do |box|
     box.vm.box = "boxcutter/fedora24"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -170,7 +170,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "CentOS 6 (64 bit)" do |box|
+  config.vm.define "CentOS 6" do |box|
     box.vm.box = "boxcutter/centos68-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
@@ -179,7 +179,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "CentOS 7 (64 bit)" do |box|
+  config.vm.define "CentOS 7" do |box|
     box.vm.box = "boxcutter/centos72-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -189,7 +189,7 @@ Vagrant.configure("2") do |config|
 
 
   # openSUSE
-  config.vm.define "openSUSE Leap 42.1 (64 bit)" do |box|
+  config.vm.define "openSUSE Leap 42.1" do |box|
     box.vm.box = "opensuse/openSUSE-42.1-x86_64"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
@@ -202,7 +202,7 @@ Vagrant.configure("2") do |config|
 
 
   # elementary OS
-  config.vm.define "elementary OS (64 bit)" do |box|
+  config.vm.define "elementary OS" do |box|
     box.vm.box = "boxcutter/ubuntu1604"
     box.vm.provision :vmpark, scripts: [
       "install-elementary.sh",
@@ -229,7 +229,7 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 
-  config.vm.define "Windows XP (32 bit)" do |box|
+  config.vm.define "Windows XP" do |box|
     box.vm.box = "winxp32-professional"
   end
 
@@ -237,14 +237,14 @@ Vagrant.configure("2") do |config|
     box.vm.box = "winxp64-professional"
   end
 
-  config.vm.define "Windows 7 Enterprise (64 bit)" do |box|
+  config.vm.define "Windows 7" do |box|
     box.vm.box = "eval-win7x64-enterprise-nocm"
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
     ]
   end
 
-  config.vm.define "Windows 10 Enterprise (64 bit)" do |box|
+  config.vm.define "Windows 10" do |box|
     box.vm.box = "inclusivedesign/windows10-eval"
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
