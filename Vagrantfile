@@ -219,8 +219,12 @@ Vagrant.configure("2") do |config|
 
 
   # Windows
-  config.vm.define "Windows XP Professional (32 bit)" do |box|
+  config.vm.define "Windows XP (32 bit)" do |box|
     box.vm.box = "winxp32-professional"
+  end
+
+  config.vm.define "Windows XP (64 bit)" do |box|
+    box.vm.box = "winxp64-professional"
   end
 
   config.vm.define "Windows 7 Enterprise (64 bit)" do |box|
