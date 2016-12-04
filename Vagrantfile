@@ -171,6 +171,15 @@ Vagrant.configure("2") do |config|
 
 
   # CentOS
+  config.vm.define "CentOS 5" do |box|
+    box.vm.box = "centos511-desktop"
+    custom_box_url box, "centos511-desktop.json"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-xorgconf-legacy.sh",
+      "timezone.sh",
+    ]
+  end
+
   config.vm.define "CentOS 6 (32 bit)" do |box|
     box.vm.box = "boxcutter/centos68-i386"
     box.vm.provision :vmpark, scripts: [
