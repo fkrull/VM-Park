@@ -17,12 +17,6 @@ module VMParkHelper
       config.vm.finalize!
     end
 
-    #def provision
-    #  @machine.action(:reload, options)
-    #  begin
-    #          sleep 10
-    #        end until @machine.communicate.ready?
-
     def path(script, config)
       config.vmpark.prefix + "/" + script
     end

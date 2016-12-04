@@ -16,5 +16,15 @@ module VMParkHelper
       require_relative "provisioner"
       Provisioner
     end
+
+    config(:winssh, :provisioner) do
+      require_relative "provisioner_winssh"
+      WinSSHProvisionerConfig
+    end
+
+    provisioner(:winssh) do
+      require_relative "provisioner_winssh"
+      WinSSHProvisioner
+    end
   end
 end

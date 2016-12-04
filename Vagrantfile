@@ -219,6 +219,16 @@ Vagrant.configure("2") do |config|
 
 
   # Windows
+  config.vm.define "Windows 2000" do |box|
+    box.vm.box = "win2k-professional"
+
+    box.ssh.shell = "cmd"
+    box.vm.provision :winssh, inline: <<-SHELL
+      mklink dummy C:\\Public \\\\VBOXSVR\\Public
+      mklink dummy C:\\vagrant \\\\VBOXSVR\\vagrant
+    SHELL
+  end
+
   config.vm.define "Windows XP (32 bit)" do |box|
     box.vm.box = "winxp32-professional"
   end
