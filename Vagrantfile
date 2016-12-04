@@ -26,11 +26,21 @@ Env = {
   # Timezone to set in the VMs.
   "TIMEZONE": "Europe/Berlin"
 } unless defined?(Env)
+# URL prefix for custom boxes; if nil, the URL is not set so boxes need to be
+# added manually.
+CustomBaseBoxUrl = nil unless defined?(CustomBaseBoxUrl)
 
 
 # local/bundled plugins
 require_relative "vagrant-plugins/vagrant-reload/lib/vagrant-reload"
 require_relative "vagrant-plugins/vmpark-helper/plugin"
+
+
+def custom_box_url(config, path)
+  if CustomBaseBoxUrl != nil
+    config.vm.box_url = CustomBaseBoxUrl + "/" + path
+  end
+end
 
 
 Vagrant.configure("2") do |config|
@@ -222,6 +232,7 @@ Vagrant.configure("2") do |config|
   # Windows
   config.vm.define "Windows 2000" do |box|
     box.vm.box = "win2k-professional"
+    custom_box_url box, "win2k-professional.json"
 
     box.ssh.shell = "cmd"
     box.vm.provision :winssh, inline: <<-SHELL
@@ -232,10 +243,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Windows XP" do |box|
     box.vm.box = "winxp32-professional"
+    custom_box_url box, "winxp32-professional.json"
   end
 
   config.vm.define "Windows XP (64 bit)" do |box|
     box.vm.box = "winxp64-professional"
+    custom_box_url box, "winxp64-professional.json"
   end
 
   config.vm.define "Windows 7" do |box|
