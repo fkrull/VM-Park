@@ -5,26 +5,27 @@
 begin
   require_relative "local_config"
 rescue LoadError
-  # Configurable settings.
-
-  # Number of CPUs per VM.
-  Cpus = 2
-  # Amount of memory.
-  Memory = 2048
-  # Amount of video memory.
-  VRAM = 128
-  # Enable/disable 3D acceleration support.
-  Accelerate3D = true
-  # Path to a "public" directory that's mounted at /Public.
-  PublicDir = File.expand_path("~/Public")
-  # Environment for the provisioning scripts.
-  Env = {
-    # Keyboard layout.
-    "KEYMAP": "de",
-    # Timezone to set in the VMs.
-    "TIMEZONE": "Europe/Berlin"
-  }
 end
+
+# Defaults.
+
+# Number of CPUs per VM.
+Cpus = 2 unless defined?(Cpus)
+# Amount of memory.
+Memory = 2048 unless defined?(Memory)
+# Amount of video memory.
+VRAM = 128 unless defined?(VRAM)
+# Enable/disable 3D acceleration support.
+Accelerate3D = true unless defined?(Accelerate3D)
+# Path to a "public" directory that's mounted at /Public.
+PublicDir = File.expand_path("~/Public") unless defined?(PublicDir)
+# Environment for the provisioning scripts.
+Env = {
+  # Keyboard layout.
+  "KEYMAP": "de",
+  # Timezone to set in the VMs.
+  "TIMEZONE": "Europe/Berlin"
+} unless defined?(Env)
 
 
 # local/bundled plugins
