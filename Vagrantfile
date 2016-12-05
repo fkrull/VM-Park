@@ -18,7 +18,9 @@ VRAM = 128 unless defined?(VRAM)
 # Enable/disable 3D acceleration support.
 Accelerate3D = true unless defined?(Accelerate3D)
 # Path to a "public" directory that's mounted at /Public.
-PublicDir = File.expand_path("~/Public") unless defined?(PublicDir)
+SyncedFolders = [
+  File.expand_path("~/Public")
+] unless defined?(SyncedFolders)
 # Environment for the provisioning scripts.
 Env = {
   # Keyboard layout.
@@ -46,7 +48,9 @@ end
 Vagrant.configure("2") do |config|
   config.vmpark.env = Env
   config.vmpark.reload = true
-  config.vm.synced_folder PublicDir, "/Public", :mount_options => ["ro"]
+  SyncedFolders.each do |path|
+    config.vm.synced_folder path, "/" + File.basename(path)
+  end
 
 
   config.vm.provider "virtualbox" do |vb|
