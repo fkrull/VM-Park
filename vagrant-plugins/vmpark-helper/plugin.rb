@@ -8,13 +8,13 @@ module VMParkHelper
     end
 
     config(:vmpark, :provisioner) do
-      require_relative "provisioner_config"
-      ProvisionerConfig
+      require_relative "provisioner_vmpark"
+      VMParkProvisionerConfig
     end
 
     provisioner(:vmpark) do
-      require_relative "provisioner"
-      Provisioner
+      require_relative "provisioner_vmpark"
+      VMParkProvisioner
     end
 
     config(:winssh, :provisioner) do

@@ -1,5 +1,17 @@
 module VMParkHelper
-  class Provisioner < Vagrant.plugin(2, :provisioner)
+  class VMParkProvisionerConfig < Vagrant.plugin(2, :config)
+    attr_accessor :scripts
+
+    def initialize
+      @scripts = UNSET_VALUE
+    end
+
+    def finalize!
+      @scripts = [] if @scripts == UNSET_VALUE
+    end
+  end
+
+  class VMParkProvisioner < Vagrant.plugin(2, :provisioner)
     def initialize(machine, config)
       super(machine, config)
       create_provisioners(config.scripts, machine.config)
