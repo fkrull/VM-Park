@@ -38,9 +38,9 @@ require_relative "vagrant-plugins/vagrant-reload/lib/vagrant-reload"
 require_relative "vagrant-plugins/vmpark-helper/plugin"
 
 
-def custom_box_url(config, path)
+def configure_custom_box(config)
   if CustomBaseBoxUrl != nil
-    config.vm.box_url = CustomBaseBoxUrl + "/" + path
+    config.vm.box_url = "#{CustomBaseBoxUrl}/#{config.vm.box}.json"
   end
 end
 
@@ -177,7 +177,7 @@ Vagrant.configure("2") do |config|
   # CentOS
   config.vm.define "CentOS 5" do |box|
     box.vm.box = "centos511-desktop"
-    custom_box_url box, "centos511-desktop.json"
+    configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf-legacy.sh",
       "timezone.sh",
@@ -245,7 +245,7 @@ Vagrant.configure("2") do |config|
   # Windows
   config.vm.define "Windows 2000" do |box|
     box.vm.box = "win2k-professional"
-    custom_box_url box, "win2k-professional.json"
+    configure_custom_box(box)
 
     box.ssh.shell = "cmd"
     box.vm.provision :winssh, inline: <<-SHELL
@@ -256,16 +256,25 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Windows XP" do |box|
     box.vm.box = "winxp32-professional"
-    custom_box_url box, "winxp32-professional.json"
+    configure_custom_box(box)
   end
 
   config.vm.define "Windows XP (64 bit)" do |box|
     box.vm.box = "winxp64-professional"
-    custom_box_url box, "winxp64-professional.json"
+    configure_custom_box(box)
+  end
+
+  config.vm.define "Windows 7 (32 bit)" do |box|
+    box.vm.box = "win7x32-enterprise-eval"
+    configure_custom_box(box)
+    box.vm.provision :vmpark, scripts: [
+      "keymap-windows.ps1",
+    ]
   end
 
   config.vm.define "Windows 7" do |box|
-    box.vm.box = "eval-win7x64-enterprise-nocm"
+    box.vm.box = "win7x64-enterprise-eval"
+    configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
     ]
