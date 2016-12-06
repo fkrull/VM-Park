@@ -26,7 +26,8 @@ Env = {
   # Keyboard layout.
   "KEYMAP": "de",
   # Timezone to set in the VMs.
-  "TIMEZONE": "Europe/Berlin"
+  "TIMEZONE": "Europe/Berlin",
+  "TIMEZONE_WINDOWS": "W. Europe Standard Time",
 } unless defined?(Env)
 # URL prefix for custom boxes; if nil, the URL is not set so boxes need to be
 # added manually.
@@ -269,6 +270,7 @@ Vagrant.configure("2") do |config|
     configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
+      "timezone-windows.ps1",
     ]
   end
 
@@ -277,6 +279,7 @@ Vagrant.configure("2") do |config|
     configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
+      "timezone-windows.ps1",
     ]
   end
 
@@ -284,6 +287,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "inclusivedesign/windows10-eval"
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
+      "timezone-windows.ps1",
     ]
   end
 
