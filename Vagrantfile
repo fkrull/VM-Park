@@ -266,7 +266,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Windows 7 (32 bit)" do |box|
-    box.vm.box = "win7x32-enterprise-eval"
+    box.vm.box = "win7x86-pro"
     configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
@@ -275,7 +275,25 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Windows 7" do |box|
-    box.vm.box = "win7x64-enterprise-eval"
+    box.vm.box = "win7x64-pro"
+    configure_custom_box(box)
+    box.vm.provision :vmpark, scripts: [
+      "keymap-windows.ps1",
+      "timezone-windows.ps1",
+    ]
+  end
+
+  config.vm.define "Windows 8.1 (32 bit)" do |box|
+    box.vm.box = "win81x86-pro"
+    configure_custom_box(box)
+    box.vm.provision :vmpark, scripts: [
+      "keymap-windows.ps1",
+      "timezone-windows.ps1",
+    ]
+  end
+
+  config.vm.define "Windows 8.1" do |box|
+    box.vm.box = "win81x64-pro"
     configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
