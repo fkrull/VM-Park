@@ -301,8 +301,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Windows 10 (32 bit)" do |box|
+    box.vm.box = "win10x86-pro"
+    configure_custom_box(box)
+    box.vm.provision :vmpark, scripts: [
+      "keymap-windows.ps1",
+      "timezone-windows.ps1",
+    ]
+  end
+
   config.vm.define "Windows 10" do |box|
-    box.vm.box = "inclusivedesign/windows10-eval"
+    box.vm.box = "win10x64-pro"
+    configure_custom_box(box)
     box.vm.provision :vmpark, scripts: [
       "keymap-windows.ps1",
       "timezone-windows.ps1",
