@@ -177,11 +177,12 @@ Vagrant.configure("2") do |config|
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
-    box.vm.box = "centos511-desktop"
-    configure_custom_box(box)
+    box.vm.box = "boxcutter/centos511"
     box.vm.provision :vmpark, scripts: [
+      "install-desktop-centos5.sh",
       "keymap-xorgconf-legacy.sh",
       "timezone.sh",
+      "autologin-gdm.sh",
     ]
   end
 
