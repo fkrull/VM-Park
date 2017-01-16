@@ -174,6 +174,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 25" do |box|
+    box.vm.box = "boxcutter/fedora25"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "graphical-boot-systemd.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
