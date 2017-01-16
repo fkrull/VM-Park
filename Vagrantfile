@@ -118,6 +118,18 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Ubuntu GNOME
+  config.vm.define "Ubuntu GNOME 16.04" do |box|
+    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-ubuntu-gnome.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm3-ubuntu1604.sh",
+    ]
+  end
+
+
   # Debian
   config.vm.define "Debian 7" do |box|
     box.vm.box = "boxcutter/debian7"
