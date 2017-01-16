@@ -217,7 +217,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 7" do |box|
-    box.vm.box = "boxcutter/centos72-desktop"
+    box.vm.box = "boxcutter/centos73-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
