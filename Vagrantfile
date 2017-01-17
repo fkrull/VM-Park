@@ -268,6 +268,29 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # FreeBSD
+  config.vm.define "FreeBSD 11" do |box|
+    box.vm.box = "freebsd/FreeBSD-11.0-STABLE"
+    box.vm.guest = :freebsd
+    box.ssh.shell = "sh"
+    box.vm.base_mac = "080027D14C66"
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
+
+    box.vm.provision :vmpark, scripts: [
+      "freebsd-termcap.sh",
+      "freebsd-procfs.sh",
+      "install-desktop-freebsd-gnome.sh",
+      "timezone-freebsd.sh",
+      "autologin-gdm-freebsd.sh",
+    ]
+  end
+
+
   # Windows
   config.vm.define "Windows 2000" do |box|
     box.vm.box = "win2k-professional"
