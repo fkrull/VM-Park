@@ -125,7 +125,7 @@ Vagrant.configure("2") do |config|
       "install-desktop-ubuntu-gnome.sh",
       "keymap-localectl.sh",
       "timezone.sh",
-      "autologin-gdm3-ubuntu1604.sh",
+      "autologin-gdm-ubuntu1604.sh",
     ]
   end
 
@@ -137,7 +137,7 @@ Vagrant.configure("2") do |config|
       "keymap-xorgconf.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
-      "autologin-gdm3.sh",
+      "autologin-gdm-debian7.sh",
     ]
   end
 
