@@ -50,7 +50,8 @@ Vagrant.configure("2") do |config|
   config.vmpark.env = Env
   config.vmpark.reload = true
   SyncedFolders.each do |path|
-    config.vm.synced_folder path, "/" + File.basename(path)
+    basename = File.basename(path)
+    config.vm.synced_folder path, "/" + basename, id: basename
   end
 
 
