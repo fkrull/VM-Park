@@ -131,6 +131,18 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Xubuntu
+  config.vm.define "Xubuntu 16.04" do |box|
+    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-xubuntu.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+    ]
+  end
+
+
   # Debian
   config.vm.define "Debian 7" do |box|
     box.vm.box = "boxcutter/debian7"
