@@ -143,6 +143,33 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # elementary OS
+  config.vm.define "elementary OS" do |box|
+    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.provision :vmpark, scripts: [
+      "install-elementary.sh",
+      "install-desktop-elementary.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
+
+  # Linux Mint
+  config.vm.define "Linux Mint 18" do |box|
+    box.vm.box = "artem-sidorenko/mint-18.1-cinnamon"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+    ]
+  end
+
+
   # Debian
   config.vm.define "Debian 7" do |box|
     box.vm.box = "boxcutter/debian7"
@@ -260,23 +287,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-opensuse.sh",
     ]
-  end
-
-
-  # elementary OS
-  config.vm.define "elementary OS" do |box|
-    box.vm.box = "boxcutter/ubuntu1604"
-    box.vm.provision :vmpark, scripts: [
-      "install-elementary.sh",
-      "install-desktop-elementary.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-lightdm.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 
