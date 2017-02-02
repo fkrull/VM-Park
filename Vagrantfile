@@ -222,7 +222,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/fedora23"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
-      "graphical-boot-systemd.sh",
+      "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -234,7 +234,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/fedora24"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
-      "graphical-boot-systemd.sh",
+      "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -245,7 +245,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "boxcutter/fedora25"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
-      "graphical-boot-systemd.sh",
+      "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -295,7 +295,7 @@ config.vm.define "openSUSE 13.2" do |box|
   box.vm.box = "opensuse/openSUSE-13.2-x86_64"
   box.vm.provision :vmpark, scripts: [
     "install-desktop-opensuse13-kde.sh",
-    "graphical-boot-systemd.sh",
+    "systemd-graphical-target.sh",
     "keymap-localectl.sh",
     "timezone.sh",
     "autologin-opensuse.sh",
@@ -310,7 +310,7 @@ end
     box.vm.box = "opensuse/openSUSE-42.1-x86_64"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
-      "graphical-boot-systemd.sh",
+      "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-opensuse.sh",
