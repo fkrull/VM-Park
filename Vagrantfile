@@ -301,6 +301,10 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-opensuse.sh",
     ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
   end
 
 
