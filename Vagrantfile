@@ -209,10 +209,10 @@ Vagrant.configure("2") do |config|
 
     box.vm.provision :vmpark, scripts: [
       "debian-unstable.sh",
-      "install-desktop-debian-xfce.sh",
+      "install-desktop-debian.sh",
       "keymap-localectl.sh",
       "timezone.sh",
-      "autologin-lightdm.sh",
+      "autologin-gdm-debian.sh",
     ]
   end
 
