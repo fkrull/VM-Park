@@ -292,6 +292,21 @@ Vagrant.configure("2") do |config|
 
 
   # openSUSE
+config.vm.define "openSUSE 13.2" do |box|
+  box.vm.box = "opensuse/openSUSE-13.2-x86_64"
+  box.vm.provision :vmpark, scripts: [
+    "install-desktop-opensuse13-kde.sh",
+    "graphical-boot-systemd.sh",
+    "keymap-localectl.sh",
+    "timezone.sh",
+    "autologin-opensuse.sh",
+  ]
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+  end
+end
+
   config.vm.define "openSUSE Leap 42.1" do |box|
     box.vm.box = "opensuse/openSUSE-42.1-x86_64"
     box.vm.provision :vmpark, scripts: [
