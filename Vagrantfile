@@ -147,7 +147,6 @@ Vagrant.configure("2") do |config|
   config.vm.define "elementary OS" do |box|
     box.vm.box = "boxcutter/ubuntu1604"
     box.vm.provision :vmpark, scripts: [
-      "install-elementary.sh",
       "install-desktop-elementary.sh",
       "keymap-localectl.sh",
       "timezone.sh",
