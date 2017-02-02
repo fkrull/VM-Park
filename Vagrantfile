@@ -160,6 +160,22 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # KDE neon
+  config.vm.define "KDE neon" do |box|
+    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-kde-neon.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-sddm-plasma.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
+
   # Linux Mint
   config.vm.define "Linux Mint 18" do |box|
     box.vm.box = "artem-sidorenko/mint-18.1-cinnamon"
