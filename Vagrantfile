@@ -192,7 +192,7 @@ Vagrant.configure("2") do |config|
       "keymap-xorgconf.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
-      "autologin-gdm-debian7.sh",
+      "autologin-gdm-debian.sh",
     ]
   end
 
