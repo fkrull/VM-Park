@@ -226,8 +226,8 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
+      "systemd-enable-sshd.sh",
     ]
-    box.vm.provision "shell", inline: "systemctl enable sshd.service"
   end
 
   config.vm.define "Fedora 24" do |box|
@@ -302,20 +302,20 @@ Vagrant.configure("2") do |config|
 
 
   # openSUSE
-config.vm.define "openSUSE 13.2" do |box|
-  box.vm.box = "opensuse/openSUSE-13.2-x86_64"
-  box.vm.provision :vmpark, scripts: [
-    "install-desktop-opensuse13-kde.sh",
-    "systemd-graphical-target.sh",
-    "keymap-localectl.sh",
-    "timezone.sh",
-    "autologin-opensuse.sh",
-  ]
+  config.vm.define "openSUSE 13.2" do |box|
+    box.vm.box = "opensuse/openSUSE-13.2-x86_64"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-opensuse13-kde.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-opensuse.sh",
+    ]
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
   end
-end
 
   config.vm.define "openSUSE Leap 42.1" do |box|
     box.vm.box = "opensuse/openSUSE-42.1-x86_64"
@@ -330,6 +330,19 @@ end
     config.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
     end
+  end
+
+
+  # Arch Linux
+  config.vm.define "Arch Linux" do |box|
+    box.vm.box = "ogarcia/archlinux-x64"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-arch-gnome.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
   end
 
 
