@@ -263,6 +263,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 25 Cinnamon" do |box|
+    box.vm.box = "boxcutter/fedora25"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora-cinnamon.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+    ]
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
