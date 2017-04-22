@@ -371,7 +371,7 @@ Vagrant.configure("2") do |config|
 
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
-    box.vm.box = "ogarcia/archlinux-x64"
+    box.vm.box = "wholebits/archlinux-64"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-arch-gnome.sh",
       "systemd-enable-gdm.sh",
