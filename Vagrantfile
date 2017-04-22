@@ -99,6 +99,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -107,6 +108,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -115,6 +117,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -125,6 +128,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -137,6 +141,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm-ubuntu1604.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -149,6 +154,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-lightdm.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
@@ -161,6 +167,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-lightdm.sh",
+      "ubuntu-fix-locale.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|
@@ -177,6 +184,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-sddm-plasma.sh",
+      "ubuntu-fix-locale.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|
@@ -191,6 +199,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "ubuntu-fix-locale.sh",
     ]
   end
 
