@@ -118,6 +118,16 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Ubuntu 17.04" do |box|
+    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-lightdm.sh",
+    ]
+  end
+
 
   # Ubuntu GNOME
   config.vm.define "Ubuntu GNOME 16.04" do |box|
