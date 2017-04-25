@@ -145,6 +145,21 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Ubuntu GNOME 17.04" do |box|
+    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntu-gnome.sh",
+      "autologin-gdm-ubuntu1604.sh",
+      "ubuntu-fix-locale.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
 
   # Xubuntu
   config.vm.define "Xubuntu 16.04" do |box|
@@ -156,6 +171,23 @@ Vagrant.configure("2") do |config|
       "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
     ]
+  end
+
+
+  # Kubuntu
+  config.vm.define "Kubuntu 17.04" do |box|
+    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-kubuntu.sh",
+      "autologin-sddm-plasma.sh",
+      "ubuntu-fix-locale.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
   end
 
 
