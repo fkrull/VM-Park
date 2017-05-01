@@ -129,6 +129,7 @@ Vagrant.configure("2") do |config|
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
   end
 
@@ -153,6 +154,7 @@ Vagrant.configure("2") do |config|
       "install-desktop-ubuntu-gnome.sh",
       "autologin-gdm-ubuntu1604.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|
@@ -183,6 +185,7 @@ Vagrant.configure("2") do |config|
       "install-desktop-kubuntu.sh",
       "autologin-sddm-plasma.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|
