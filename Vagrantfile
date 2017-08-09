@@ -435,6 +435,22 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "openSUSE Leap 42.3" do |box|
+    box.vm.box = "opensuse/openSUSE-42.3-x86_64"
+    box.vm.hostname = "openSUSE-Leap-42.3"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-opensuse-kde.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-opensuse.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
 
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
