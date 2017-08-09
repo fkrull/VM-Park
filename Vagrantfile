@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
 begin
   require_relative "local_config"
 rescue LoadError
@@ -258,14 +257,25 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Debian Unstable" do |box|
-    box.vm.box = "boxcutter/debian8"
-
+  config.vm.define "Debian 9" do |box|
+    box.vm.box = "wholebits/debian9-64"
+    box.vm.hostname = "Debian-9"
     box.vm.provision :vmpark, scripts: [
-      "debian-unstable.sh",
-      "install-desktop-debian.sh",
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-debian.sh",
+      "autologin-gdm-debian.sh",
+    ]
+  end
+
+  config.vm.define "Debian Unstable" do |box|
+    box.vm.box = "wholebits/debian9-64"
+    box.vm.hostname = "Debian-Unstable"
+    box.vm.provision :vmpark, scripts: [
+      "debian-unstable.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
     ]
   end
