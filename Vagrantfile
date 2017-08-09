@@ -268,6 +268,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Debian Testing" do |box|
+    box.vm.box = "wholebits/debian9-64"
+    box.vm.hostname = "Debian-Unstable"
+    box.vm.provision :vmpark, scripts: [
+      "debian-testing.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian.sh",
+      "autologin-gdm-debian.sh",
+    ]
+  end
+
   config.vm.define "Debian Unstable" do |box|
     box.vm.box = "wholebits/debian9-64"
     box.vm.hostname = "Debian-Unstable"

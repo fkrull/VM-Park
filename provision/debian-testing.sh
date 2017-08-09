@@ -1,7 +1,7 @@
 #!/bin/sh
 cat > /etc/apt/sources.list <<EOF
-deb http://ftp.de.debian.org/debian/ unstable main
-deb http://ftp.de.debian.org/debian/ unstable contrib
+deb http://ftp.de.debian.org/debian/ testing main
+deb http://ftp.de.debian.org/debian/ testing contrib
 EOF
 
 export DEBIAN_FRONTEND=noninteractive
