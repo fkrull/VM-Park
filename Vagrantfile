@@ -257,6 +257,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Debian 8 (32 bit)" do |box|
+    box.vm.box = "boxcutter/debian8-i386"
+    box.vm.hostname = "Debian-8-32"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian.sh",
+      "autologin-gdm-debian.sh",
+    ]
+  end
+
   config.vm.define "Debian 9" do |box|
     box.vm.box = "wholebits/debian9-64"
     box.vm.hostname = "Debian-9"
