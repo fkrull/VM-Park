@@ -374,6 +374,19 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 26 MATE" do |box|
+    box.vm.box = "wholebits/fedora26-64"
+    box.vm.hostname = "Fedora-26-MATE"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora-mate.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-lightdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+    ]
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
