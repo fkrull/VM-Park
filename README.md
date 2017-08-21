@@ -8,20 +8,19 @@ VirtualBox.
 Run `vagrant status` to get an overview of all defined VMs. Then run
 
     vagrant up <VM name>
-    vagrant reload <VM name>
 
-to first create and provision the VM, then reboot it so all the changes take.
-All VMs are GUI-enabled and have bidirectional shared clipboard turned on.
+to create and provision the VM you want. All VMs are GUI-enabled, have
+bidirectional shared clipboard turned on and mount the folder `~/Public`.
 
 ## Availability
-The Linux/FOSS systems use base boxes from
-[vagrantcloud.com](https://vagrantcloud.com) as far as possible. The Windows VMs
-may also be custom base boxes; those aren't going to be very useful to anyone
-but me.
+The Linux/FOSS systems use publicly available base boxes and should work in any
+environment. The Windows VMs are using custom base boxes; for Windows 7+ I use
+boxes based on the [boxcutter](https://github.com/boxcutter/windows) templates,
+so you might be able to reproduce them. Anything older is still custom, though.
 
 ## Configuration
 Certain settings can be configured by creating a `local_config.rb` file in the
 repository root and setting configuration variables there. See
 `local_config.rb.example` for a sample file. You can find the names and defaults
-of all available configurable settings at the top of the `Vagrantfile`. In
-general, the `Vagrantfile`, rather than the sample, is authoritative.
+of all available configurable settings at the top of the `Vagrantfile`. The
+`Vagrantfile`, rather than the sample, is authoritative.
