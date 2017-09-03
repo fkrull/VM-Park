@@ -259,7 +259,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian 8 (32 bit)" do |box|
     box.vm.box = "boxcutter/debian8-i386"
-    box.vm.hostname = "Debian-8-32"
+    box.vm.hostname = "debian8-32"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -270,7 +270,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian 9" do |box|
     box.vm.box = "wholebits/debian9-64"
-    box.vm.hostname = "Debian-9"
+    box.vm.hostname = "debian9"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -281,7 +281,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian Testing" do |box|
     box.vm.box = "wholebits/debian9-64"
-    box.vm.hostname = "Debian-Unstable"
+    box.vm.hostname = "debian-testing"
     box.vm.provision :vmpark, scripts: [
       "debian-testing.sh",
       "keymap-localectl.sh",
@@ -293,7 +293,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian Unstable" do |box|
     box.vm.box = "wholebits/debian9-64"
-    box.vm.hostname = "Debian-Unstable"
+    box.vm.hostname = "debian-unstable"
     box.vm.provision :vmpark, scripts: [
       "debian-unstable.sh",
       "keymap-localectl.sh",
@@ -487,7 +487,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "openSUSE Leap 42.3" do |box|
     box.vm.box = "opensuse/openSUSE-42.3-x86_64"
-    box.vm.hostname = "openSUSE-Leap-42.3"
+    box.vm.hostname = "opensuse42.3"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
       "systemd-graphical-target.sh",
