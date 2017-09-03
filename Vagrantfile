@@ -363,7 +363,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 26" do |box|
     box.vm.box = "wholebits/fedora26-64"
-    box.vm.hostname = "Fedora-26"
+    box.vm.hostname = "fedora26"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -376,7 +376,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 26 MATE" do |box|
     box.vm.box = "wholebits/fedora26-64"
-    box.vm.hostname = "Fedora-26-MATE"
+    box.vm.hostname = "fedora26-mate"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora-mate.sh",
       "systemd-graphical-target.sh",
@@ -384,6 +384,20 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-lightdm.sh",
+    ]
+  end
+
+  config.vm.define "Fedora 26 Atomic Workstation" do |box|
+    box.vm.box = "fkrull/fedora26-atomic-workstation"
+    box.vm.hostname = "fedora26-atomicws"
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
     ]
   end
 
