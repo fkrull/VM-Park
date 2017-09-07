@@ -502,6 +502,22 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Mageia
+  config.vm.define "Mageia 6" do |box|
+    box.vm.box = "fkrull/mageia6-64"
+    box.vm.hostname = "mageia6"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-sddm-mageia.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
+
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
     box.vm.box = "wholebits/archlinux-64"
