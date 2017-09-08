@@ -387,6 +387,23 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 26 KDE" do |box|
+    box.vm.box = "wholebits/fedora26-64"
+    box.vm.hostname = "fedora26-kde"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora-kde.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-sddm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-sddm-plasma.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
   config.vm.define "Fedora 26 Atomic Workstation" do |box|
     box.vm.box = "fkrull/fedora26-atomic-workstation"
     box.vm.hostname = "fedora26-atomicws"

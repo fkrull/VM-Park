@@ -1,2 +1,2 @@
 #!/bin/sh
-dnf groupinstall -y "Cinnamon Desktop"
+dnf --exclude kernel groupinstall -y "Cinnamon Desktop"
