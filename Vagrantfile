@@ -65,16 +65,6 @@ Vagrant.configure("2") do |config|
 
 
   # Ubuntu
-  config.vm.define "Ubuntu 12.04 (32 bit)" do |box|
-    box.vm.box = "boxcutter/ubuntu1204-i386"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-xorgconf.sh",
-      "timezone.sh",
-      "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
-    ]
-  end
-
   config.vm.define "Ubuntu 12.04" do |box|
     box.vm.box = "boxcutter/ubuntu1204-desktop"
     box.vm.provision :vmpark, scripts: [
@@ -92,7 +82,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 16.04 (32 bit)" do |box|
-    box.vm.box = "boxcutter/ubuntu1604-i386"
+    box.vm.box = "wholebits/ubuntu16.04-32"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -104,15 +94,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Ubuntu 16.04" do |box|
     box.vm.box = "boxcutter/ubuntu1604-desktop"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "ubuntu-fix-locale.sh",
-    ]
-  end
-
-  config.vm.define "Ubuntu 16.10" do |box|
-    box.vm.box = "boxcutter/ubuntu1610-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -240,7 +221,7 @@ Vagrant.configure("2") do |config|
 
   # Debian
   config.vm.define "Debian 7" do |box|
-    box.vm.box = "boxcutter/debian7"
+    box.vm.box = "wholebits/debian7-64"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
@@ -250,15 +231,17 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian 8" do |box|
-    box.vm.box = "boxcutter/debian8-desktop"
+    box.vm.box = "wholebits/debian8-64"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-debian.sh",
+      "autologin-gdm-debian.sh",
     ]
   end
 
   config.vm.define "Debian 8 (32 bit)" do |box|
-    box.vm.box = "boxcutter/debian8-i386"
+    box.vm.box = "wholebits/debian8-32"
     box.vm.hostname = "debian8-32"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -305,59 +288,14 @@ Vagrant.configure("2") do |config|
 
 
   # Fedora
-  config.vm.define "Fedora 23" do |box|
-    box.vm.box = "boxcutter/fedora23"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-      "systemd-enable-sshd.sh",
-    ]
-  end
-
-  config.vm.define "Fedora 24" do |box|
-    box.vm.box = "boxcutter/fedora24"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-    ]
-  end
-
   config.vm.define "Fedora 25" do |box|
-    box.vm.box = "boxcutter/fedora25"
+    box.vm.box = "wholebits/fedora25-64"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
-    ]
-  end
-
-  config.vm.define "Fedora 25 MATE" do |box|
-    box.vm.box = "boxcutter/fedora25"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora-mate.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-lightdm.sh",
-    ]
-  end
-
-  config.vm.define "Fedora 25 Cinnamon" do |box|
-    box.vm.box = "boxcutter/fedora25"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora-cinnamon.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-lightdm.sh",
     ]
   end
 
@@ -421,7 +359,7 @@ Vagrant.configure("2") do |config|
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
-    box.vm.box = "boxcutter/centos511-desktop"
+    box.vm.box = "boxcutter/centos5-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf-legacy.sh",
       "timezone.sh",
@@ -429,7 +367,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 6 (32 bit)" do |box|
-    box.vm.box = "boxcutter/centos68-i386"
+    box.vm.box = "wholebits/centos6-32"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-centos6.sh",
       "keymap-xorgconf.sh",
@@ -439,7 +377,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 6" do |box|
-    box.vm.box = "boxcutter/centos68-desktop"
+    box.vm.box = "boxcutter/centos6-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
@@ -448,7 +386,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 7" do |box|
-    box.vm.box = "boxcutter/centos73-desktop"
+    box.vm.box = "boxcutter/centos7-desktop"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -488,7 +426,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "openSUSE Leap 42.2" do |box|
-    box.vm.box = "bento/opensuse-leap-42.2"
+    box.vm.box = "opensuse/openSUSE-42.2-x86_64"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
       "systemd-graphical-target.sh",
@@ -537,7 +475,7 @@ Vagrant.configure("2") do |config|
 
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
-    box.vm.box = "wholebits/archlinux-64"
+    box.vm.box = "wholebits/archlinux"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-arch-gnome.sh",
       "systemd-enable-gdm.sh",
@@ -550,7 +488,7 @@ Vagrant.configure("2") do |config|
 
   # FreeBSD
   config.vm.define "FreeBSD 11" do |box|
-    box.vm.box = "freebsd/FreeBSD-11.0-STABLE"
+    box.vm.box = "freebsd/FreeBSD-11.1-STABLE"
     box.vm.guest = :freebsd
     box.ssh.shell = "sh"
     box.vm.base_mac = "080027D14C66"
