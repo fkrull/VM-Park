@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 16.04 (32 bit)" do |box|
-    box.vm.box = "wholebits/ubuntu16.04-32"
+    box.vm.box = "bento/ubuntu-16.04-i386"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -102,7 +102,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 17.04" do |box|
-    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.box = "bento/ubuntu-17.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -127,7 +127,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu GNOME 17.04" do |box|
-    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.box = "bento/ubuntu-17.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -158,7 +158,7 @@ Vagrant.configure("2") do |config|
 
   # Kubuntu
   config.vm.define "Kubuntu 17.04" do |box|
-    box.vm.box = "wholebits/ubuntu17.04-64"
+    box.vm.box = "bento/ubuntu-17.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -221,7 +221,7 @@ Vagrant.configure("2") do |config|
 
   # Debian
   config.vm.define "Debian 7" do |box|
-    box.vm.box = "wholebits/debian7-64"
+    box.vm.box = "bento/debian-7.11"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
@@ -231,18 +231,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian 8" do |box|
-    box.vm.box = "wholebits/debian8-64"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-debian.sh",
-      "autologin-gdm-debian.sh",
-    ]
-  end
-
-  config.vm.define "Debian 8 (32 bit)" do |box|
-    box.vm.box = "wholebits/debian8-32"
-    box.vm.hostname = "debian8-32"
+    box.vm.box = "bento/debian-8.9"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -263,7 +252,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian Testing" do |box|
-    box.vm.box = "wholebits/debian9-64"
+    box.vm.box = "bento/debian-9.1"
     box.vm.hostname = "debian-testing"
     box.vm.provision :vmpark, scripts: [
       "debian-testing.sh",
@@ -275,7 +264,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian Unstable" do |box|
-    box.vm.box = "wholebits/debian9-64"
+    box.vm.box = "bento/debian-9.1"
     box.vm.hostname = "debian-unstable"
     box.vm.provision :vmpark, scripts: [
       "debian-unstable.sh",
@@ -289,7 +278,7 @@ Vagrant.configure("2") do |config|
 
   # Fedora
   config.vm.define "Fedora 25" do |box|
-    box.vm.box = "wholebits/fedora25-64"
+    box.vm.box = "bento/fedora-25"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -313,7 +302,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora 26 MATE" do |box|
-    box.vm.box = "wholebits/fedora26-64"
+    box.vm.box = "bento/fedora-26"
     box.vm.hostname = "fedora26-mate"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora-mate.sh",
@@ -326,7 +315,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora 26 KDE" do |box|
-    box.vm.box = "wholebits/fedora26-64"
+    box.vm.box = "bento/fedora-26"
     box.vm.hostname = "fedora26-kde"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora-kde.sh",
@@ -367,7 +356,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 6 (32 bit)" do |box|
-    box.vm.box = "wholebits/centos6-32"
+    box.vm.box = "bento/centos-6.9-i386"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-centos6.sh",
       "keymap-xorgconf.sh",
@@ -475,9 +464,10 @@ Vagrant.configure("2") do |config|
 
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
-    box.vm.box = "wholebits/archlinux"
+    box.vm.box = "terrywang/archlinux"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-arch-gnome.sh",
+      "systemd-graphical-target.sh",
       "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
