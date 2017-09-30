@@ -1,11 +1,14 @@
 os: linux
-sudo: false
+sudo: required
 dist: trusty
 
-addons:
-  apt:
-    packages:
-      - vagrant
+before_install:
+  - wget https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
+  - sudo dpkg -i vagrant_2.0.0_x86_64.deb
+  - sudo apt-get update -qq
+  - sudo apt-get install -y -f linux-headers-$(uname -r) virtualbox
 
-install: true
+install:
+  - echo 'SyncedFolders = ["/"]' > local_config.rb
+
 script: bash test.sh
