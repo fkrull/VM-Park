@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "validate",
+            "type": "shell",
+            "command": "bash test.sh",
+            "problemMatcher": []
+        }
+    ]
+}
