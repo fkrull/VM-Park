@@ -252,7 +252,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian 9" do |box|
-    box.vm.box = "wholebits/debian9-64"
+    box.vm.box = "bento/debian-9.1"
     box.vm.hostname = "debian9"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -300,7 +300,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora 26" do |box|
-    box.vm.box = "wholebits/fedora26-64"
+    box.vm.box = "bento/fedora-26"
     box.vm.hostname = "fedora26"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
