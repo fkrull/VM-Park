@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fkrull/VM-Park.svg?branch=master)](https://travis-ci.org/fkrull/VM-Park)
 
-This is my herd of virtual machines for testing purposes. These are mostly
+This is my herd of virtual machines for testing purposes. These are (usually)
 pristine installations of various desktop OS (mostly Linux). They are for my own
 benefit and not necessarily applicable to other people's needs. Only tested with
 VirtualBox.
@@ -19,7 +19,7 @@ bidirectional shared clipboard turned on and mount the folder `~/Public`.
 The Linux/FOSS systems use publicly available base boxes and should work in any
 environment. The Windows VMs are using custom base boxes; for Windows 7+ I use
 boxes based on the [boxcutter](https://github.com/boxcutter/windows) templates,
-so you might be able to reproduce them. Anything older is still custom, though.
+so you might be able to reproduce them. Anything older is fully custom, though.
 
 ## Configuration
 Certain settings can be configured by creating a `local_config.rb` file in the
