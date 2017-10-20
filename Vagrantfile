@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "ubuntu1710-workaround-nm-issue.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-gdm-ubuntu1604.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
