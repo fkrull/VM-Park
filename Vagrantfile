@@ -419,8 +419,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 6" do |box|
-    box.vm.box = "boxcutter/centos6-desktop"
+    box.vm.box = "bento/centos-6"
     box.vm.provision :vmpark, scripts: [
+      "install-desktop-centos6.sh",
       "keymap-xorgconf.sh",
       "timezone.sh",
       "autologin-gdm.sh",
