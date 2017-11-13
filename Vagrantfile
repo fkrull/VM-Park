@@ -156,13 +156,14 @@ Vagrant.configure("2") do |config|
 
   # Ubuntu GNOME
   config.vm.define "Ubuntu GNOME 16.04" do |box|
-    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.box = "bento/ubuntu-16.04"
     box.vm.provision :vmpark, scripts: [
-      "install-desktop-ubuntu-gnome.sh",
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-ubuntu-gnome.sh",
       "autologin-gdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
   end
 
@@ -185,13 +186,14 @@ Vagrant.configure("2") do |config|
 
   # Xubuntu
   config.vm.define "Xubuntu 16.04" do |box|
-    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.box = "bento/ubuntu-16.04"
     box.vm.provision :vmpark, scripts: [
-      "install-desktop-xubuntu.sh",
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-xubuntu.sh",
       "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
   end
 
