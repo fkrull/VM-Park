@@ -73,14 +73,18 @@ Vagrant.configure("2") do |config|
       "apt-sources-eol-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
+      "set-root-password.sh",
     ]
   end
 
   config.vm.define "Ubuntu 14.04" do |box|
-    box.vm.box = "boxcutter/ubuntu1404-desktop"
+    box.vm.box = "bento/ubuntu-14.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-lightdm.sh",
+      "set-root-password.sh",
     ]
   end
 
