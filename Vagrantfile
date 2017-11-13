@@ -65,6 +65,19 @@ Vagrant.configure("2") do |config|
 
 
   # Ubuntu
+  config.vm.define "Ubuntu 10.04" do |box|
+    box.vm.box = "bento/ubuntu-10.04"
+    box.vm.provision :vmpark, scripts: [
+      "timezone.sh",
+      "apt-sources-eol-ubuntu.sh",
+      "install-desktop-ubuntu.sh",
+      "x11-config-legacy.sh",
+      "keymap-gconf.sh",
+      "set-root-password.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
   config.vm.define "Ubuntu 12.04" do |box|
     box.vm.box = "bento/ubuntu-12.04"
     box.vm.provision :vmpark, scripts: [
