@@ -388,10 +388,14 @@ Vagrant.configure("2") do |config|
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
-    box.vm.box = "boxcutter/centos5-desktop"
+    box.vm.box = "bento/centos-5.11"
     box.vm.provision :vmpark, scripts: [
-      "keymap-xorgconf-legacy.sh",
+      "yum-repos-eol-centos.sh",
+      "install-desktop-centos5.sh",
+      "x11-config-legacy.sh",
+      "keymap-gconf.sh",
       "timezone.sh",
+      "autologin-gdm.sh",
     ]
   end
 
