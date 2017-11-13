@@ -236,13 +236,14 @@ Vagrant.configure("2") do |config|
 
   # KDE neon
   config.vm.define "KDE neon" do |box|
-    box.vm.box = "boxcutter/ubuntu1604"
+    box.vm.box = "bento/ubuntu-16.04"
     box.vm.provision :vmpark, scripts: [
-      "install-desktop-kde-neon.sh",
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-kde-neon.sh",
       "autologin-sddm-plasma.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|

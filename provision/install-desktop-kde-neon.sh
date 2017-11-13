@@ -5,6 +5,10 @@ deb http://archive.neon.kde.org/user xenial main
 deb-src http://archive.neon.kde.org/user xenial main
 EOF
 
+cat | debconf-set-selections <<EOF
+encfs encfs/security-information note
+EOF
+
 apt-key adv --keyserver keyserver.ubuntu.com --recv 55751E5D
 
 apt-get update
