@@ -100,11 +100,14 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 16.04" do |box|
-    box.vm.box = "boxcutter/ubuntu1604-desktop"
+    box.vm.box = "bento/ubuntu-16.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
   end
 
