@@ -124,7 +124,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "ubuntu1710-workaround-nm-issue.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-gdm-ubuntu1604.sh",
+      "autologin-gdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -138,7 +138,7 @@ Vagrant.configure("2") do |config|
       "install-desktop-ubuntu-gnome.sh",
       "keymap-localectl.sh",
       "timezone.sh",
-      "autologin-gdm-ubuntu1604.sh",
+      "autologin-gdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
     ]
   end
@@ -149,7 +149,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu-gnome.sh",
-      "autologin-gdm-ubuntu1604.sh",
+      "autologin-gdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
