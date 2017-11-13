@@ -66,10 +66,13 @@ Vagrant.configure("2") do |config|
 
   # Ubuntu
   config.vm.define "Ubuntu 12.04" do |box|
-    box.vm.box = "boxcutter/ubuntu1204-desktop"
+    box.vm.box = "bento/ubuntu-12.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
+      "apt-sources-eol-ubuntu.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-lightdm.sh",
     ]
   end
 
