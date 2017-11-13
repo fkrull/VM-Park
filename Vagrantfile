@@ -261,38 +261,41 @@ Vagrant.configure("2") do |config|
 
   # Debian
   config.vm.define "Debian 7" do |box|
-    box.vm.box = "bento/debian-7.11"
+    box.vm.box = "bento/debian-7"
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
+      "set-root-password.sh",
     ]
   end
 
   config.vm.define "Debian 8" do |box|
-    box.vm.box = "bento/debian-8.9"
+    box.vm.box = "bento/debian-8"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
+      "set-root-password.sh",
     ]
   end
 
   config.vm.define "Debian 9" do |box|
-    box.vm.box = "bento/debian-9.1"
+    box.vm.box = "bento/debian-9"
     box.vm.hostname = "debian9"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
+      "set-root-password.sh",
     ]
   end
 
   config.vm.define "Debian Testing" do |box|
-    box.vm.box = "bento/debian-9.1"
+    box.vm.box = "bento/debian-9"
     box.vm.hostname = "debian-testing"
     box.vm.provision :vmpark, scripts: [
       "debian-testing.sh",
@@ -300,11 +303,12 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
+      "set-root-password.sh",
     ]
   end
 
   config.vm.define "Debian Unstable" do |box|
-    box.vm.box = "bento/debian-9.1"
+    box.vm.box = "bento/debian-9"
     box.vm.hostname = "debian-unstable"
     box.vm.provision :vmpark, scripts: [
       "debian-unstable.sh",
@@ -312,6 +316,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
+      "set-root-password.sh",
     ]
   end
 
