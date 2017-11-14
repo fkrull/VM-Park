@@ -338,6 +338,8 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+
+  # Raspberry Pi Desktop
   config.vm.define "Raspberry Pi Desktop" do |box|
     box.vm.box = "bento/debian-8.9-i386"
     box.vm.hostname = "raspberry"
