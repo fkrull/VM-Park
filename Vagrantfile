@@ -441,10 +441,13 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 7" do |box|
-    box.vm.box = "boxcutter/centos7-desktop"
+    box.vm.box = "bento/centos-7"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "install-desktop-centos7.sh",
+      "systemd-graphical-target.sh",
+      "autologin-gdm.sh",
     ]
   end
 
