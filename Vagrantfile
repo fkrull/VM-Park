@@ -216,6 +216,20 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Lubuntu
+  config.vm.define "Lubuntu 17.10" do |box|
+    box.vm.box = "bento/ubuntu-17.10"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-lubuntu.sh",
+      "autologin-lightdm.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
+
   # elementary OS
   config.vm.define "elementary OS" do |box|
     box.vm.box = "bento/ubuntu-16.04"
