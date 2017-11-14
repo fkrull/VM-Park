@@ -324,6 +324,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Raspberry Pi Desktop" do |box|
+    box.vm.box = "bento/debian-8.9-i386"
+    box.vm.hostname = "raspberry"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-raspberrypi.sh",
+      "autologin-lightdm.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Fedora
   config.vm.define "Fedora 25" do |box|
