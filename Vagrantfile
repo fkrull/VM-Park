@@ -439,6 +439,23 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 27" do |box|
+    box.vm.box = "bento/fedora-27"
+    box.vm.hostname = "fedora27"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
