@@ -153,6 +153,23 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "Ubuntu 18.04" do |box|
+    box.vm.box = "bento/ubuntu-17.10"
+    box.vm.provision :vmpark, scripts: [
+      "ubuntu-dev.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-gdm-ubuntu.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
 
   # Ubuntu GNOME
   config.vm.define "Ubuntu GNOME 16.04" do |box|
@@ -229,12 +246,13 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+
+  # Ubuntu MATE
   config.vm.define "Ubuntu MATE 17.10" do |box|
     box.vm.box = "bento/ubuntu-17.10"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
-      #"ubuntu1710-workaround-nm-issue.sh",
       "install-desktop-ubuntu-mate.sh",
       "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
