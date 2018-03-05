@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
     box.vm.box = "bento/ubuntu-10.04"
     box.vm.provision :vmpark, scripts: [
       "timezone.sh",
-      "apt-sources-eol-ubuntu.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "x11-config-legacy.sh",
       "keymap-gconf.sh",
@@ -83,7 +83,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-xorgconf.sh",
       "timezone.sh",
-      "apt-sources-eol-ubuntu.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
       "set-root-password.sh",
@@ -479,7 +479,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "CentOS 5" do |box|
     box.vm.box = "bento/centos-5.11"
     box.vm.provision :vmpark, scripts: [
-      "yum-repos-eol-centos.sh",
+      "eol-sources-centos.sh",
       "install-desktop-centos5.sh",
       "x11-config-legacy.sh",
       "keymap-gconf.sh",
