@@ -17,6 +17,14 @@ module VMParkHelper
       create_provisioners(config.scripts, machine.config)
     end
 
+    def configure(config)
+      if config.vm.hostname.nil? and config.vmpark.auto_hostname
+        hostname = @machine.name.to_s.gsub(/[. ]/, '-').downcase
+        @machine.ui.info "Using default hostname '#{hostname}'."
+        config.vm.hostname = hostname
+      end
+    end
+
     def create_provisioners(scripts, config)
       for script in scripts
         config.vm.provision :shell, path: path(script, config), env: config.vmpark.env, name: script
