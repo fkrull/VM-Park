@@ -313,6 +313,19 @@ Vagrant.configure("2") do |config|
 
 
   # Debian
+  config.vm.define "Debian 6" do |box|
+    box.vm.box = "bento/debian-6.0.10"
+    box.vm.provision :vmpark, scripts: [
+      "eol-sources-debian.sh",
+      "eol-apt-allow-unauthenticated.sh",
+      "keymap-xorgconf.sh",
+      "timezone.sh",
+      "install-desktop-debian6.sh",
+      "autologin-gdm-debian.sh",
+      "set-root-password.sh",
+    ]
+  end
+
   config.vm.define "Debian 7" do |box|
     box.vm.box = "bento/debian-7"
     box.vm.provision :vmpark, scripts: [
