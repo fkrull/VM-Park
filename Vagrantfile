@@ -458,7 +458,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 26 Atomic Workstation" do |box|
     box.vm.box = "fkrull/fedora26-atomic-workstation"
-    box.vm.hostname = "fedora26-atomicws"
     SyncedFolders.each do |path|
       basename = File.basename(path)
       config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
