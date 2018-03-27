@@ -486,6 +486,19 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "Fedora 27 Atomic Workstation" do |box|
+    box.vm.box = "fkrull/fedora27-atomic-workstation"
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
