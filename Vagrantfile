@@ -129,6 +129,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm.sh",
       "ubuntu-fix-locale.sh",
