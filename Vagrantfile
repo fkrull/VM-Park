@@ -233,6 +233,23 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "Kubuntu 18.04" do |box|
+    box.vm.box = "bento/ubuntu-17.04"
+    box.vm.provision :vmpark, scripts: [
+      "ubuntu-dev.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-kubuntu.sh",
+      "autologin-sddm-plasma.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
 
   # Lubuntu
   config.vm.define "Lubuntu 17.10" do |box|
