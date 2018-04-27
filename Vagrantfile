@@ -155,9 +155,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 18.04" do |box|
-    box.vm.box = "bento/ubuntu-17.10"
+    box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
@@ -234,9 +233,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Kubuntu 18.04" do |box|
-    box.vm.box = "bento/ubuntu-17.04"
+    box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-kubuntu.sh",
@@ -295,9 +293,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu MATE 18.04" do |box|
-    box.vm.box = "bento/ubuntu-17.10"
+    box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu-mate.sh",
