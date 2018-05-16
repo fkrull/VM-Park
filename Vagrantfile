@@ -11,11 +11,11 @@ end
 # Number of CPUs per VM.
 Cpus = 2 unless defined?(Cpus)
 # Amount of memory.
-Memory = 2048 unless defined?(Memory)
+Memory = 3072 unless defined?(Memory)
 # Amount of video memory.
 VRAM = 128 unless defined?(VRAM)
 # Enable/disable 3D acceleration support.
-Accelerate3D = true unless defined?(Accelerate3D)
+Accelerate3D = false unless defined?(Accelerate3D)
 # Path to a "public" directory that's mounted at /Public.
 SyncedFolders = [
   File.expand_path("~/Public")
