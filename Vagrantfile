@@ -327,6 +327,23 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Kodi
+  config.vm.define "Kodi" do |box|
+    box.vm.box = "bento/ubuntu-16.04"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-kodi.sh",
+      "autologin-lightdm-ubuntu.sh",
+      "ubuntu-fix-locale.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    end
+  end
+
+
   # KDE neon
   config.vm.define "KDE neon" do |box|
     box.vm.box = "bento/ubuntu-16.04"
