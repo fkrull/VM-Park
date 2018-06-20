@@ -1,5 +1,4 @@
 #!/bin/sh
-#!/bin/sh
 mkdir -p /etc/apt/sources.list.d
 cat > /etc/apt/sources.list.d/elementary.list <<EOF
 deb http://ppa.launchpad.net/elementary-os/stable/ubuntu xenial main
