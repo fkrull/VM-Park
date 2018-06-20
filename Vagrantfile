@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "set-root-password.sh",
     ]
   end
@@ -96,7 +96,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "set-root-password.sh",
     ]
   end
@@ -107,7 +107,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
     ]
   end
@@ -118,7 +118,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -131,7 +131,7 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -208,7 +208,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-xubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -256,7 +256,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-lubuntu.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -270,7 +270,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu-mate.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -282,7 +282,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu-mate.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -298,7 +298,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu-mate.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
@@ -316,7 +316,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-elementary.sh",
-      "autologin-lightdm.sh",
+      "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
