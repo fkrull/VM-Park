@@ -421,6 +421,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Debian 9 KDE" do |box|
+    box.vm.box = "bento/debian-9"
+    box.vm.hostname = "debian9"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian-kde.sh",
+      "autologin-sddm-plasma.sh",
+      "set-root-password.sh",
+    ]
+  end
+
   config.vm.define "Debian Testing" do |box|
     box.vm.box = "bento/debian-9"
     box.vm.hostname = "debian-testing"
