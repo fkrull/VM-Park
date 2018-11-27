@@ -329,7 +329,6 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-elementary-xenial.sh",
-      "network-debian.sh",
       "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
