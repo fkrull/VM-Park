@@ -336,6 +336,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "elementary OS 5" do |box|
+    box.vm.box = "bento/ubuntu-18.04"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-elementary-bionic.sh",
+      "autologin-lightdm-ubuntu.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Kodi
   config.vm.define "Kodi" do |box|
