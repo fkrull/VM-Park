@@ -323,20 +323,17 @@ Vagrant.configure("2") do |config|
 
 
   # elementary OS
-  config.vm.define "elementary OS" do |box|
+  config.vm.define "elementary OS 0.4" do |box|
     box.vm.box = "bento/ubuntu-16.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
-      "install-desktop-elementary.sh",
+      "install-desktop-elementary-xenial.sh",
+      "network-debian.sh",
       "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 

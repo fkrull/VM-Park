@@ -144,8 +144,3 @@ EOF
 for pkg in $blacklist; do
     apt-get autoremove --purge -f -y "$pkg"
 done
-
-cat > /etc/network/interfaces <<EOF
-auto lo
-iface lo inet loopback
-EOF
