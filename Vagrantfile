@@ -261,6 +261,19 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "Kubuntu 18.10" do |box|
+    box.vm.box = "bento/ubuntu-18.04"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "ubuntu-cosmic.sh",
+      "install-desktop-kubuntu.sh",
+      "autologin-sddm-plasma.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Lubuntu
   config.vm.define "Lubuntu 17.10" do |box|
