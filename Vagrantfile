@@ -630,6 +630,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 29" do |box|
+    box.vm.box = "bento/fedora-29"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
   config.vm.define "Fedora 29 Silverblue" do |box|
     box.vm.box = "fkrull/fedora29-silverblue"
     SyncedFolders.each do |path|
