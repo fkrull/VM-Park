@@ -817,27 +817,6 @@ Vagrant.configure("2") do |config|
   end
 
 
-  # Haiku OS
-  config.vm.define "Haiku OS" do |box|
-    box.vm.box = "haikuos/x86_64"
-    box.vm.guest = :linux
-    box.ssh.username = "user"
-    box.ssh.insert_key = false
-
-    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
-
-    box.vm.provision :shell, privileged: false, inline: "keymap -l /system/data/Keymaps/German"
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["setextradata", :id, "GUI/Scale", "off"]
-    end
-  end
-
-
   # Windows
   config.vm.define "Windows 2000" do |box|
     box.vm.box = "win2k-professional"
