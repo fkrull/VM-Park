@@ -182,6 +182,19 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Ubuntu 19.04 (dev)" do |box|
+    box.vm.box = "bento/ubuntu-18.10"
+    box.vm.provision :vmpark, scripts: [
+      "ubuntu-dev.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-gdm-debian.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Ubuntu GNOME
   config.vm.define "Ubuntu GNOME 16.04" do |box|
