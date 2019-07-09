@@ -1,2 +1,2 @@
 #!/bin/sh
-dnf --exclude kernel groupinstall -y "Fedora Workstation"
+dnf --exclude kernel --allowerasing groupinstall -y "Fedora Workstation"
