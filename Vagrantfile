@@ -488,6 +488,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Debian 10 Cinnamon" do |box|
+    box.vm.box = "bento/debian-10"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian-cinnamon.sh",
+      "autologin-lightdm.sh",
+      "set-root-password.sh",
+    ]
+  end
+
   config.vm.define "Debian Testing" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.provision :vmpark, scripts: [
