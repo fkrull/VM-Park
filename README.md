@@ -15,12 +15,6 @@ Run `vagrant status` to get an overview of all defined VMs. Then run
 to create and provision the VM you want. All VMs are GUI-enabled, have
 bidirectional shared clipboard turned on and mount the folder `~/Public`.
 
-## Availability
-The Linux/FOSS systems use publicly available base boxes and should work in any
-environment. The Windows VMs are using custom base boxes; for Windows 7+ I use
-boxes based on the [boxcutter](https://github.com/boxcutter/windows) templates,
-so you might be able to reproduce them. Anything older is fully custom, though.
-
 ## Configuration
 Certain settings can be configured by creating a `local_config.rb` file in the
 repository root and setting configuration variables there. See
