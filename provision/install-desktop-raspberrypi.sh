@@ -22,10 +22,12 @@ apt-get -yy --no-install-recommends install \
 
 apt-get -yy install \
     alacarte \
+    arandr \
     claws-mail \
     claws-mail-i18n \
     debian-reference-en \
     pi-package \
     piclone \
+    piserver \
     rpd-plym-splash \
     xpdf
