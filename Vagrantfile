@@ -6,25 +6,24 @@ begin
 rescue LoadError
 end
 
-# Defaults.
 
-# Number of CPUs per VM.
+# number of CPUs per VM
 Cpus = 2 unless defined?(Cpus)
-# Amount of memory.
+# amount of memory
 Memory = 3072 unless defined?(Memory)
-# Amount of video memory.
+# amount of video memory
 VRAM = 128 unless defined?(VRAM)
-# Enable/disable 3D acceleration support.
+# enable/disable 3D acceleration support
 Accelerate3D = false unless defined?(Accelerate3D)
-# Path to a "public" directory that's mounted at /Public.
+# paths to additional synced folders
 SyncedFolders = [
   File.expand_path("~/Public")
 ] unless defined?(SyncedFolders)
-# Environment for the provisioning scripts.
+# environment for the provisioning scripts
 Env = {
-  # Keyboard layout.
+  # keyboard layout
   "KEYMAP": "de",
-  # Timezone to set in the VMs.
+  # timezone to set in the VMs
   "TIMEZONE": "Europe/Berlin",
 } unless defined?(Env)
 
@@ -42,7 +41,6 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder path, "/" + basename, id: basename
   end
 
-
   config.vm.provider "virtualbox" do |vb|
      vb.memory = Memory
      vb.cpus = Cpus
@@ -51,7 +49,6 @@ Vagrant.configure("2") do |config|
      vb.customize ["modifyvm", :id, "--vram", VRAM]
      vb.customize ["modifyvm", :id, "--accelerate3d", Accelerate3D ? "on" : "off"]
   end
-
 
   # Ubuntu
   config.vm.define "Ubuntu 10.04" do |box|
