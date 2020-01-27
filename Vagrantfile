@@ -667,7 +667,7 @@ Vagrant.configure("2") do |config|
     ]
 
     box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
-    end
+  end
 
   config.vm.define "openSUSE Leap 15" do |box|
     box.vm.box = "bento/opensuse-leap-15"
@@ -715,23 +715,15 @@ Vagrant.configure("2") do |config|
 
   # FreeBSD
   config.vm.define "FreeBSD 11" do |box|
-    box.vm.box = "freebsd/FreeBSD-11.1-STABLE"
-    box.vm.guest = :freebsd
-    box.ssh.shell = "sh"
-    box.vm.base_mac = "080027D14C66"
-
-    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    box.vm.box = "bento/freebsd-11"
 
     box.vm.provision :vmpark, scripts: [
-      "freebsd-termcap.sh",
       "freebsd-procfs.sh",
       "install-desktop-freebsd-gnome.sh",
       "timezone-freebsd.sh",
       "autologin-gdm-freebsd.sh",
     ]
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
   end
 end
