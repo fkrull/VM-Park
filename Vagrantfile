@@ -206,54 +206,8 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Ubuntu GNOME 17.04" do |box|
-    box.vm.box = "bento/ubuntu-17.04"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-ubuntu-gnome.sh",
-      "autologin-gdm-debian.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
-  end
-
-
-  # Xubuntu
-  config.vm.define "Xubuntu 16.04" do |box|
-    box.vm.box = "bento/ubuntu-16.04"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-xubuntu.sh",
-      "autologin-lightdm-ubuntu.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-  end
-
 
   # Kubuntu
-  config.vm.define "Kubuntu 17.04" do |box|
-    box.vm.box = "bento/ubuntu-17.04"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-kubuntu.sh",
-      "autologin-sddm-plasma.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
-  end
-
   config.vm.define "Kubuntu 18.04" do |box|
     box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
@@ -270,62 +224,8 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "Kubuntu 18.10" do |box|
-    box.vm.box = "bento/ubuntu-18.10"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-kubuntu.sh",
-      "autologin-sddm-plasma.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-  end
-
-
-  # Lubuntu
-  config.vm.define "Lubuntu 17.10" do |box|
-    box.vm.box = "bento/ubuntu-17.10"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-lubuntu.sh",
-      "autologin-lightdm-ubuntu.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-  end
-
 
   # Ubuntu MATE
-  config.vm.define "Ubuntu MATE 16.04" do |box|
-    box.vm.box = "bento/ubuntu-16.04"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-ubuntu-mate.sh",
-      "autologin-lightdm-ubuntu.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-  end
-
-  config.vm.define "Ubuntu MATE 17.10" do |box|
-    box.vm.box = "bento/ubuntu-17.10"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-ubuntu-mate.sh",
-      "autologin-lightdm-ubuntu.sh",
-      "ubuntu-fix-locale.sh",
-      "set-root-password.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
-  end
-
   config.vm.define "Ubuntu MATE 18.04" do |box|
     box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
@@ -404,17 +304,6 @@ Vagrant.configure("2") do |config|
   end
 
 
-  # Linux Mint
-  config.vm.define "Linux Mint 18" do |box|
-    box.vm.box = "artem-sidorenko/mint-18.1-cinnamon"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "ubuntu-fix-locale.sh",
-    ]
-  end
-
-
   # Debian
   config.vm.define "Debian 6" do |box|
     box.vm.box = "bento/debian-6.0.10"
@@ -463,18 +352,6 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Debian 9 KDE" do |box|
-    box.vm.box = "bento/debian-9"
-    box.vm.hostname = "debian9"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-debian-kde.sh",
-      "autologin-sddm-plasma.sh",
-      "set-root-password.sh",
-    ]
-  end
-
   config.vm.define "Debian 10" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.provision :vmpark, scripts: [
@@ -482,17 +359,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "install-desktop-debian.sh",
       "autologin-gdm-debian.sh",
-      "set-root-password.sh",
-    ]
-  end
-
-  config.vm.define "Debian 10 Cinnamon" do |box|
-    box.vm.box = "bento/debian-10"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "install-desktop-debian-cinnamon.sh",
-      "autologin-lightdm.sh",
       "set-root-password.sh",
     ]
   end
@@ -571,36 +437,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-gdm.sh",
     ]
-  end
-
-  config.vm.define "Fedora 26 MATE" do |box|
-    box.vm.box = "bento/fedora-26"
-    box.vm.hostname = "fedora26-mate"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora-mate.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-lightdm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-lightdm.sh",
-    ]
-  end
-
-  config.vm.define "Fedora 26 KDE" do |box|
-    box.vm.box = "bento/fedora-26"
-    box.vm.hostname = "fedora26-kde"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora-kde.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-sddm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-sddm-plasma.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
   config.vm.define "Fedora 26 Atomic Workstation" do |box|
