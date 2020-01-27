@@ -271,13 +271,14 @@ Vagrant.configure("2") do |config|
 
   # Kodi
   config.vm.define "Kodi" do |box|
-    box.vm.box = "bento/ubuntu-16.04"
+    box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-kodi.sh",
       "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
     ]
 
     config.vm.provider "virtualbox" do |vb|
@@ -288,7 +289,7 @@ Vagrant.configure("2") do |config|
 
   # KDE neon
   config.vm.define "KDE neon" do |box|
-    box.vm.box = "bento/ubuntu-16.04"
+    box.vm.box = "bento/ubuntu-18.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",

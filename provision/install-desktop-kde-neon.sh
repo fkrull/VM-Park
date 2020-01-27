@@ -1,8 +1,10 @@
 #!/bin/sh
+DIST=$(lsb_release -cs)
+
 mkdir -p /etc/apt/sources.list.d
 cat > /etc/apt/sources.list.d/neon.list <<EOF
-deb http://archive.neon.kde.org/user xenial main
-deb-src http://archive.neon.kde.org/user xenial main
+deb http://archive.neon.kde.org/user $DIST main
+deb-src http://archive.neon.kde.org/user $DIST main
 EOF
 
 cat | debconf-set-selections <<EOF
