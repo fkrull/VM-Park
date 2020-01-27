@@ -1,2 +1,3 @@
 #!/bin/sh
-dnf --exclude kernel groupinstall -y --best --allowerasing "MATE Desktop"
+dnf --exclude kernel,kernel-core,kernel-modules,kernel-modules-extra -y \
+    group install --best --allowerasing "MATE Desktop"
