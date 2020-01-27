@@ -721,6 +721,7 @@ Vagrant.configure("2") do |config|
       "freebsd-procfs.sh",
       "install-desktop-freebsd-gnome.sh",
       "timezone-freebsd.sh",
+      "keymap-xdg-autostart-freebsd.sh",
       "autologin-gdm-freebsd.sh",
     ]
 
