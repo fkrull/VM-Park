@@ -656,23 +656,8 @@ Vagrant.configure("2") do |config|
 
 
   # openSUSE
-  config.vm.define "openSUSE 13.2" do |box|
-    box.vm.box = "opensuse/openSUSE-13.2-x86_64"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-opensuse13-kde.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-opensuse.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
-  end
-
-  config.vm.define "openSUSE Leap 42.1" do |box|
-    box.vm.box = "opensuse/openSUSE-42.1-x86_64"
+  config.vm.define "openSUSE Leap 42" do |box|
+    box.vm.box = "bento/opensuse-leap-42"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
       "systemd-graphical-target.sh",
@@ -681,13 +666,11 @@ Vagrant.configure("2") do |config|
       "autologin-opensuse.sh",
     ]
 
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
     end
-  end
 
-  config.vm.define "openSUSE Leap 42.2" do |box|
-    box.vm.box = "opensuse/openSUSE-42.2-x86_64"
+  config.vm.define "openSUSE Leap 15" do |box|
+    box.vm.box = "bento/opensuse-leap-15"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-opensuse-kde.sh",
       "systemd-graphical-target.sh",
@@ -696,25 +679,7 @@ Vagrant.configure("2") do |config|
       "autologin-opensuse.sh",
     ]
 
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
-  end
-
-  config.vm.define "openSUSE Leap 42.3" do |box|
-    box.vm.box = "opensuse/openSUSE-42.3-x86_64"
-    box.vm.hostname = "opensuse42.3"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-opensuse-kde.sh",
-      "systemd-graphical-target.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-opensuse.sh",
-    ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
   end
 
 
