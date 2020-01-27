@@ -612,7 +612,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "CentOS 6 (32 bit)" do |box|
-    box.vm.box = "bento/centos-6.9-i386"
+    box.vm.box = "bento/centos-6.10-i386"
+    box.vm.hostname = "centos6-i386"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-centos6.sh",
       "keymap-xorgconf.sh",
