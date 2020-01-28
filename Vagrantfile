@@ -727,4 +727,18 @@ Vagrant.configure("2") do |config|
 
     box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
   end
+
+  config.vm.define "FreeBSD 12" do |box|
+    box.vm.box = "bento/freebsd-12"
+
+    box.vm.provision :vmpark, scripts: [
+      "freebsd-procfs.sh",
+      "install-desktop-freebsd-gnome.sh",
+      "timezone-freebsd.sh",
+      "keymap-xdg-autostart-freebsd.sh",
+      "autologin-gdm-freebsd.sh",
+    ]
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
+  end
 end
