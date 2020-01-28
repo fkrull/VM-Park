@@ -713,6 +713,20 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Alpine
+  config.vm.define "Alpine 3.10" do |box|
+    box.vm.box = "roboxes/alpine310"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-alpine-xfce.sh",
+      "timezone.sh",
+      "keymap-xorgconf.sh",
+      "autologin-lightdm.sh",
+    ]
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
+  end
+
+
   # FreeBSD
   config.vm.define "FreeBSD 11" do |box|
     box.vm.box = "bento/freebsd-11"
