@@ -4,3 +4,6 @@ Env = {
   "KEYMAP": "de",
   "TIMEZONE": "Europe/Berlin"
 }
+SyncedFolders = [
+  File.expand_path("~/Public")
+]

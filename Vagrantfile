@@ -16,9 +16,7 @@ VRAM = 128 unless defined?(VRAM)
 # enable/disable 3D acceleration support
 Accelerate3D = false unless defined?(Accelerate3D)
 # paths to additional synced folders
-SyncedFolders = [
-  File.expand_path("~/Public")
-] unless defined?(SyncedFolders)
+SyncedFolders = [] unless defined?(SyncedFolders)
 # environment for the provisioning scripts
 Env = {
   # keyboard layout
@@ -455,15 +453,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 26 Atomic Workstation" do |box|
     box.vm.box = "fkrull/fedora26-atomic-workstation"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 27" do |box|
@@ -485,15 +484,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 27 Atomic Workstation" do |box|
     box.vm.box = "fkrull/fedora27-atomic-workstation"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 28" do |box|
@@ -511,15 +511,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 28 Atomic Workstation" do |box|
     box.vm.box = "fkrull/fedora28-atomic-workstation"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 29" do |box|
@@ -536,15 +537,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 29 Silverblue" do |box|
     box.vm.box = "fkrull/fedora29-silverblue"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 30" do |box|
@@ -561,15 +563,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 30 Silverblue" do |box|
     box.vm.box = "fkrull/fedora30-silverblue"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 31" do |box|
@@ -599,15 +602,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 31 Silverblue" do |box|
     box.vm.box = "fkrull/fedora31-silverblue"
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      config.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
 
