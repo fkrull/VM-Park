@@ -6,6 +6,10 @@ begin
 rescue LoadError
 end
 
+# TODO: expand
+DefaultSoundDrivers = {
+  "mingw32" => "dsound"
+}
 
 # number of CPUs per VM
 Cpus = 2 unless defined?(Cpus)
@@ -17,6 +21,8 @@ VRAM = 128 unless defined?(VRAM)
 Accelerate3D = false unless defined?(Accelerate3D)
 # paths to additional synced folders
 SyncedFolders = [] unless defined?(SyncedFolders)
+# the host sound driver to use
+SoundDriver = DefaultSoundDrivers[Gem::Platform.local.os] unless defined?(SoundDriver)
 # environment for the provisioning scripts
 Env = {
   # keyboard layout
@@ -46,6 +52,14 @@ Vagrant.configure("2") do |config|
      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
      vb.customize ["modifyvm", :id, "--vram", VRAM]
      vb.customize ["modifyvm", :id, "--accelerate3d", Accelerate3D ? "on" : "off"]
+     vb.customize [
+      "modifyvm", :id,
+      "--audio", SoundDriver,
+      "--audiocontroller", "ac97",
+      "--audioin", "on",
+      "--audioout", "on",
+    ]
+
   end
 
   # Ubuntu
