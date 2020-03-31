@@ -8,7 +8,8 @@ end
 
 # TODO: expand
 DefaultSoundDrivers = {
-  "mingw32" => "dsound"
+  "mingw32" => "dsound",
+  "linux" => "alsa",
 }
 
 # number of CPUs per VM
