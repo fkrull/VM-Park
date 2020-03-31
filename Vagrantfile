@@ -444,7 +444,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Raspberry Pi Desktop" do |box|
-    box.vm.box = "bento/debian-10.1-i386"
+    box.vm.box = "bento/debian-10.2-i386"
     box.vm.hostname = "raspberry"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
