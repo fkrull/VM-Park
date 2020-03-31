@@ -481,20 +481,6 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 26 Atomic Workstation" do |box|
-    box.vm.box = "fkrull/fedora26-atomic-workstation"
-    box.vm.provision :vmpark, scripts: [
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-    ]
-
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
-  end
-
   config.vm.define "Fedora 27" do |box|
     box.vm.box = "bento/fedora-27"
     box.vm.hostname = "fedora27"
@@ -512,8 +498,60 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "Fedora 27 Atomic Workstation" do |box|
-    box.vm.box = "fkrull/fedora27-atomic-workstation"
+  config.vm.define "Fedora 28" do |box|
+    box.vm.box = "bento/fedora-28"
+    box.vm.hostname = "fedora28"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
+  config.vm.define "Fedora 29" do |box|
+    box.vm.box = "bento/fedora-29"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
+  config.vm.define "Fedora 30" do |box|
+    box.vm.box = "bento/fedora-30"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
+  config.vm.define "Fedora 31" do |box|
+    box.vm.box = "bento/fedora-31"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+      "fedora31-force-xorg.sh",
+    ]
+  end
+
+
+  # Fedora Silverblue
+  config.vm.define "Fedora 26 Atomic Workstation" do |box|
+    box.vm.box = "fkrull/fedora26-atomic-workstation"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -526,17 +564,18 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "Fedora 28" do |box|
-    box.vm.box = "bento/fedora-28"
-    box.vm.hostname = "fedora28"
+  config.vm.define "Fedora 27 Atomic Workstation" do |box|
+    box.vm.box = "fkrull/fedora27-atomic-workstation"
     box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
   end
 
   config.vm.define "Fedora 28 Atomic Workstation" do |box|
@@ -553,18 +592,6 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "Fedora 29" do |box|
-    box.vm.box = "bento/fedora-29"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-    ]
-  end
-
   config.vm.define "Fedora 29 Silverblue" do |box|
     box.vm.box = "fkrull/fedora29-silverblue"
     box.vm.provision :vmpark, scripts: [
@@ -579,18 +606,6 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "Fedora 30" do |box|
-    box.vm.box = "bento/fedora-30"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-    ]
-  end
-
   config.vm.define "Fedora 30 Silverblue" do |box|
     box.vm.box = "fkrull/fedora30-silverblue"
     box.vm.provision :vmpark, scripts: [
@@ -603,31 +618,6 @@ Vagrant.configure("2") do |config|
       basename = File.basename(path)
       box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
     end
-  end
-
-  config.vm.define "Fedora 31" do |box|
-    box.vm.box = "bento/fedora-31"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-gdm.sh",
-      "fedora31-force-xorg.sh",
-    ]
-  end
-
-  config.vm.define "Fedora 31 Cinnamon" do |box|
-    box.vm.box = "bento/fedora-31"
-    box.vm.provision :vmpark, scripts: [
-      "install-desktop-fedora-cinnamon.sh",
-      "systemd-graphical-target.sh",
-      "systemd-enable-lightdm.sh",
-      "keymap-localectl.sh",
-      "timezone.sh",
-      "autologin-lightdm.sh",
-    ]
   end
 
   config.vm.define "Fedora 31 Silverblue" do |box|
