@@ -634,6 +634,20 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "Fedora 32 Silverblue" do |box|
+    box.vm.box = "fkrull/fedora32-silverblue"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+
+    SyncedFolders.each do |path|
+      basename = File.basename(path)
+      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
+    end
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
