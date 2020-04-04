@@ -219,6 +219,21 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Xubuntu
+  config.vm.define "Xubuntu 20.04" do |box|
+    box.vm.box = "bento/ubuntu-19.10"
+    box.vm.provision :vmpark, scripts: [
+      "ubuntu-dev.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-xubuntu.sh",
+      "autologin-lightdm-ubuntu.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
+
   # Ubuntu GNOME
   config.vm.define "Ubuntu GNOME 16.04" do |box|
     box.vm.box = "bento/ubuntu-16.04"
