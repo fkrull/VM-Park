@@ -1,6 +1,11 @@
 #!/bin/sh
+set -eu
+
 RELEASE=$1
-dnf upgrade -y --releasever=$RELEASE
+
+dnf -y upgrade --releasever=$RELEASE --nogpgcheck fedora-gpg-keys fedora-release fedora-repos
+# hack: sometimes dnf stops when importing the key for the first time, so we retry
+dnf -y upgrade || dnf -y upgrade
 
 vbox_dir=$(ls /opt | grep VBoxGuestAdditions)
 /opt/${vbox_dir}/uninstall.sh
