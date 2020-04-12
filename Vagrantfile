@@ -208,7 +208,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Ubuntu 20.04" do |box|
     box.vm.box = "bento/ubuntu-19.10"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
+      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
