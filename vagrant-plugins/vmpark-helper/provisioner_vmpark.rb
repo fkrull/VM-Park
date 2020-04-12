@@ -26,8 +26,10 @@ module VMParkHelper
     end
 
     def create_provisioners(scripts, config)
-      for script in scripts
-        config.vm.provision :shell, path: path(script, config), env: config.vmpark.env, name: script
+      for script_line in scripts
+        args = script_line.split()
+        script = args.shift()
+        config.vm.provision :shell, path: path(script, config), args: args, env: config.vmpark.env, name: script
       end
 
       if config.vmpark.reload and not scripts.empty?
