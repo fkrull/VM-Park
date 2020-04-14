@@ -423,7 +423,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Debian Testing" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.provision :vmpark, scripts: [
-      "debian-testing.sh",
+      "switch-release-debian.sh testing",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
@@ -435,7 +435,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Debian Unstable" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.provision :vmpark, scripts: [
-      "debian-unstable.sh",
+      "switch-release-debian.sh unstable",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-debian.sh",
