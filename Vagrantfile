@@ -223,7 +223,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Xubuntu 20.04" do |box|
     box.vm.box = "bento/ubuntu-19.10"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
+      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-xubuntu.sh",
@@ -288,7 +288,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "Ubuntu Studio 20.04" do |box|
     box.vm.box = "bento/ubuntu-19.10"
     box.vm.provision :vmpark, scripts: [
-      "ubuntu-dev.sh",
+      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntustudio.sh",
@@ -399,7 +399,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Debian 9" do |box|
     box.vm.box = "bento/debian-9"
-    box.vm.hostname = "debian9"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -485,7 +484,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 26" do |box|
     box.vm.box = "bento/fedora-26"
-    box.vm.hostname = "fedora26"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -498,7 +496,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 27" do |box|
     box.vm.box = "bento/fedora-27"
-    box.vm.hostname = "fedora27"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -515,7 +512,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "Fedora 28" do |box|
     box.vm.box = "bento/fedora-28"
-    box.vm.hostname = "fedora28"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -778,7 +774,6 @@ Vagrant.configure("2") do |config|
   # Mageia
   config.vm.define "Mageia 6" do |box|
     box.vm.box = "fkrull/mageia6-64"
-    box.vm.hostname = "mageia6"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
