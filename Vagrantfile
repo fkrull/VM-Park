@@ -786,6 +786,18 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Amazon Linux
+  config.vm.define "Amazon Linux 2" do |box|
+    box.vm.box = "bento/amazonlinux-2"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-amazonlinux2.sh",
+      "autologin-lightdm.sh",
+    ]
+  end
+
+
   # Arch Linux
   config.vm.define "Arch Linux" do |box|
     box.vm.box = "archlinux/archlinux"
