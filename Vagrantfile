@@ -206,9 +206,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 20.04" do |box|
-    box.vm.box = "bento/ubuntu-19.10"
+    box.vm.box = "bento/ubuntu-20.04"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
@@ -221,9 +220,8 @@ Vagrant.configure("2") do |config|
 
   # Xubuntu
   config.vm.define "Xubuntu 20.04" do |box|
-    box.vm.box = "bento/ubuntu-19.10"
+    box.vm.box = "bento/ubuntu-20.04"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-xubuntu.sh",
@@ -286,9 +284,8 @@ Vagrant.configure("2") do |config|
 
   # Ubuntu Studio
   config.vm.define "Ubuntu Studio 20.04" do |box|
-    box.vm.box = "bento/ubuntu-19.10"
+    box.vm.box = "bento/ubuntu-20.04"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-ubuntu.sh focal",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntustudio.sh",
