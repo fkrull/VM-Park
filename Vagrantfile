@@ -547,7 +547,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Rawhide" do |box|
-    box.vm.box = "bento/fedora-31"
+    box.vm.box = "bento/fedora-latest"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh rawhide",
       "install-desktop-fedora.sh",
