@@ -16,8 +16,6 @@ DefaultSoundDrivers = {
 Cpus = 2 unless defined?(Cpus)
 # amount of memory
 Memory = 3072 unless defined?(Memory)
-# virtual video driver
-VideoDriver = "vboxvga" unless defined?(VideoDriver)
 # amount of video memory
 VRAM = 128 unless defined?(VRAM)
 # enable/disable 3D acceleration support
@@ -54,7 +52,6 @@ Vagrant.configure("2") do |config|
      vb.gui = true
      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
      vb.customize ["modifyvm", :id, "--vram", VRAM]
-     vb.customize ["modifyvm", :id, "--graphicscontroller", VideoDriver]
      vb.customize ["modifyvm", :id, "--accelerate3d", Accelerate3D ? "on" : "off"]
      vb.customize [
       "modifyvm", :id,
@@ -63,6 +60,7 @@ Vagrant.configure("2") do |config|
       "--audioin", "on",
       "--audioout", "on",
     ]
+
   end
 
   # Ubuntu
