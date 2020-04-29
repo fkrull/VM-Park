@@ -147,10 +147,6 @@ Vagrant.configure("2") do |config|
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
   config.vm.define "Ubuntu 18.04" do |box|
@@ -163,10 +159,6 @@ Vagrant.configure("2") do |config|
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
   config.vm.define "Ubuntu 18.10" do |box|
@@ -257,10 +249,6 @@ Vagrant.configure("2") do |config|
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 
@@ -275,10 +263,6 @@ Vagrant.configure("2") do |config|
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 
@@ -324,7 +308,7 @@ Vagrant.configure("2") do |config|
 
   # Kodi
   config.vm.define "Kodi" do |box|
-    box.vm.box = "bento/ubuntu-18.04"
+    box.vm.box = "bento/ubuntu-20.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -335,6 +319,7 @@ Vagrant.configure("2") do |config|
     ]
 
     config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
       vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
     end
   end
@@ -351,10 +336,6 @@ Vagrant.configure("2") do |config|
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 
@@ -501,10 +482,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-gdm.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
   config.vm.define "Fedora 28" do |box|
@@ -776,10 +753,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-sddm-mageia.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
 
