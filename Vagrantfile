@@ -718,6 +718,22 @@ Vagrant.configure("2") do |config|
 
 
   # openSUSE
+  config.vm.define "openSUSE 13" do |box|
+    box.vm.box = "bento/opensuse-13.2"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-opensuse13-kde.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-opensuse.sh",
+    ]
+
+    config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--graphicscontroller", "vboxvga"]
+      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+    end
+  end
+
   config.vm.define "openSUSE Leap 42" do |box|
     box.vm.box = "bento/opensuse-leap-42"
     box.vm.provision :vmpark, scripts: [
