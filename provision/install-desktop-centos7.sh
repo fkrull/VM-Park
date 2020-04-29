@@ -1,5 +1,5 @@
 #!/bin/sh
-yum groupinstall -y \
+yum --exclude kernel,kmod-kvdo,vdo groupinstall -y \
     "GNOME Desktop" \
     "Backup Client" \
     "GNOME Applications" \
