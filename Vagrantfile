@@ -302,7 +302,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
-      "install-desktop-elementary-xenial.sh",
+      "install-desktop-elementary.sh",
       "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
@@ -314,7 +314,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
-      "install-desktop-elementary-bionic.sh",
+      "install-desktop-elementary.sh",
       "autologin-lightdm-ubuntu.sh",
       "ubuntu-fix-locale.sh",
       "set-root-password.sh",
