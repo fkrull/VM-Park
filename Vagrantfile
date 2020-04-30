@@ -47,20 +47,19 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = Memory
-     vb.cpus = Cpus
-     vb.gui = true
-     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-     vb.customize ["modifyvm", :id, "--vram", VRAM]
-     vb.customize ["modifyvm", :id, "--accelerate3d", Accelerate3D ? "on" : "off"]
-     vb.customize [
+    vb.memory = Memory
+    vb.cpus = Cpus
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--vram", VRAM]
+    vb.customize ["modifyvm", :id, "--accelerate3d", Accelerate3D ? "on" : "off"]
+    vb.customize [
       "modifyvm", :id,
       "--audio", SoundDriver,
       "--audiocontroller", "ac97",
       "--audioin", "on",
       "--audioout", "on",
     ]
-
   end
 
   # Ubuntu
@@ -318,7 +317,7 @@ Vagrant.configure("2") do |config|
       "set-root-password.sh",
     ]
 
-    config.vm.provider "virtualbox" do |vb|
+    box.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
       vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
     end
@@ -729,11 +728,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-opensuse.sh",
     ]
-
-    config.vm.provider "virtualbox" do |vb|
-      vb.customize ["modifyvm", :id, "--graphicscontroller", "vboxvga"]
-      vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    end
   end
 
   config.vm.define "openSUSE Leap 42" do |box|
