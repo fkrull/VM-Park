@@ -465,7 +465,6 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -477,7 +476,6 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -489,7 +487,6 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -501,7 +498,6 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -513,7 +509,6 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -525,11 +520,10 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
-      "fedora31-force-xorg.sh",
+      #"fedora31-force-xorg.sh",
     ]
   end
 
@@ -539,7 +533,6 @@ Vagrant.configure("2") do |config|
       "switch-release-fedora.sh 32",
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -552,7 +545,6 @@ Vagrant.configure("2") do |config|
       "switch-release-fedora.sh rawhide",
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
-      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
