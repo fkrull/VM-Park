@@ -523,7 +523,6 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
-      #"fedora31-force-xorg.sh",
     ]
   end
 
