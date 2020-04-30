@@ -13,9 +13,9 @@ DefaultSoundDrivers = {
 }
 
 # number of CPUs per VM
-Cpus = 2 unless defined?(Cpus)
+Cpus = 1 unless defined?(Cpus)
 # amount of memory
-Memory = 3072 unless defined?(Memory)
+Memory = 2048 unless defined?(Memory)
 # amount of video memory
 VRAM = 128 unless defined?(VRAM)
 # enable/disable 3D acceleration support
