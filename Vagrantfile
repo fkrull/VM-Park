@@ -449,6 +449,17 @@ Vagrant.configure("2") do |config|
 
 
   # Fedora
+  config.vm.define "Fedora 24" do |box|
+    box.vm.box = "bento/fedora-24"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
   config.vm.define "Fedora 25" do |box|
     box.vm.box = "bento/fedora-25"
     box.vm.provision :vmpark, scripts: [
