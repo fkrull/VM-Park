@@ -19,7 +19,10 @@ module VMParkHelper
 
     def configure(config)
       if config.vm.hostname.nil? and config.vmpark.auto_hostname
-        hostname = @machine.name.to_s.gsub(/[. ]/, '-').downcase
+        hostname = @machine.name.to_s
+          .gsub(/[. ]/, '-')
+          .gsub(/[()]/, '')
+          .downcase
         @machine.ui.info "Using default hostname '#{hostname}'."
         config.vm.hostname = hostname
       end
