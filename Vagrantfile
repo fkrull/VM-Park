@@ -396,6 +396,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Debian 10 (32 bit)" do |box|
+    box.vm.box = "bento/debian-10.2-i386"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-debian.sh",
+      "autologin-gdm-debian.sh",
+      "set-root-password.sh",
+    ]
+  end
+
   config.vm.define "Debian Testing" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.provision :vmpark, scripts: [
