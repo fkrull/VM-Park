@@ -571,6 +571,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 33" do |box|
+    box.vm.box = "bento/fedora-32"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-fedora.sh 33",
+      "install-desktop-fedora.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
   config.vm.define "Fedora Rawhide" do |box|
     box.vm.box = "bento/fedora-latest"
     box.vm.provision :vmpark, scripts: [
@@ -820,6 +832,30 @@ Vagrant.configure("2") do |config|
   # Alpine
   config.vm.define "Alpine 3.10" do |box|
     box.vm.box = "roboxes/alpine310"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-alpine-xfce.sh",
+      "timezone.sh",
+      "keymap-xorgconf.sh",
+      "autologin-lightdm.sh",
+    ]
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
+  end
+
+  config.vm.define "Alpine 3.11" do |box|
+    box.vm.box = "roboxes/alpine311"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-alpine-xfce.sh",
+      "timezone.sh",
+      "keymap-xorgconf.sh",
+      "autologin-lightdm.sh",
+    ]
+
+    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
+  end
+
+  config.vm.define "Alpine 3.12" do |box|
+    box.vm.box = "roboxes/alpine312"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-alpine-xfce.sh",
       "timezone.sh",
