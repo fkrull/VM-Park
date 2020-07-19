@@ -561,9 +561,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora 32" do |box|
-    box.vm.box = "bento/fedora-31"
+    box.vm.box = "bento/fedora-32"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-fedora.sh 32",
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
       "keymap-localectl.sh",
