@@ -690,6 +690,26 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora 33 Silverblue" do |box|
+    box.vm.box = "fkrull/fedora32-silverblue"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-fedora-silverblue.sh 33",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
+  config.vm.define "Fedora Rawhide Silverblue" do |box|
+    box.vm.box = "fkrull/fedora32-silverblue"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-fedora-silverblue.sh rawhide",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
 
   # CentOS
   config.vm.define "CentOS 5" do |box|
