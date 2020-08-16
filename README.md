@@ -1,6 +1,6 @@
 # The Virtual Machine Park
 
-[![Build Status](https://travis-ci.org/fkrull/VM-Park.svg?branch=master)](https://travis-ci.org/fkrull/VM-Park)
+[![Build Status](https://travis-ci.org/fkrull/VM-Park.svg?branch=main)](https://travis-ci.org/fkrull/VM-Park)
 
 This is my herd of virtual machines for testing purposes. These are (usually)
 pristine installations of various desktop OS (mostly Linux). They are for my own
