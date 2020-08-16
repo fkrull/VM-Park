@@ -688,11 +688,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-gdm.sh",
     ]
-
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
   end
 
 
