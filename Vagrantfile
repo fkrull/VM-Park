@@ -580,6 +580,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
     ]
   end
 
@@ -592,6 +593,7 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
     ]
   end
 
@@ -693,20 +695,22 @@ Vagrant.configure("2") do |config|
   config.vm.define "Fedora 33 Silverblue" do |box|
     box.vm.box = "fkrull/fedora32-silverblue"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-fedora-silverblue.sh 33",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
+      "switch-release-fedora-silverblue.sh 33",
     ]
   end
 
   config.vm.define "Fedora Rawhide Silverblue" do |box|
     box.vm.box = "fkrull/fedora32-silverblue"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-fedora-silverblue.sh rawhide",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
+      "switch-release-fedora-silverblue.sh rawhide",
     ]
   end
 
