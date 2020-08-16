@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
   config.vmpark.reload = true
   SyncedFolders.each do |path|
     basename = File.basename(path)
-    config.vm.synced_folder path, "/" + basename, id: basename
+    config.vm.synced_folder path, "/mnt/" + basename, id: basename
   end
 
   config.vm.provider "virtualbox" do |vb|
