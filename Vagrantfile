@@ -263,6 +263,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Kubuntu 20.04" do |box|
+    box.vm.box = "bento/ubuntu-20.04"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-kubuntu.sh",
+      "autologin-sddm-plasma.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Ubuntu MATE
   config.vm.define "Ubuntu MATE 18.04" do |box|
