@@ -1,3 +1,5 @@
 #!/bin/sh
 dnf upgrade -y rpm
-dnf --exclude kernel groupinstall -y "Workstation"
+dnf -y \
+    --exclude "kernel,kernel-core,kernel-debug,kernel-debug-core,kernel-modules,kernel-modules-extras" \
+    groupinstall "Workstation"
