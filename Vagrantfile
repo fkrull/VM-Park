@@ -488,6 +488,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -499,6 +500,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -510,6 +512,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -521,6 +524,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -532,6 +536,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -543,6 +548,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -554,6 +560,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
@@ -565,6 +572,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
+      "systemd-enable-gdm.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
