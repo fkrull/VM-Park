@@ -1,3 +1,5 @@
 #!/bin/sh
-dnf --exclude kernel,kernel-core,kernel-modules,kernel-modules-extra -y \
+dnf -y \
+    --exclude "kernel,kernel-core,kernel-debug,kernel-debug-core,kernel-modules,kernel-modules-extras" \
+    --allowerasing \
     group install "Cinnamon Desktop"
