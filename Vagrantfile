@@ -38,13 +38,31 @@ require_relative "vagrant-plugins/vagrant-reload/lib/vagrant-reload"
 require_relative "vagrant-plugins/vmpark-helper/plugin"
 
 
+# synced folders actions
+def synced_folder_path(basename)
+  "/mnt/" + basename
+end
+
+def enable_synced_folders(ctx)
+  SyncedFolders.each do |path|
+    basename = File.basename(path)
+    ctx.vm.synced_folder path, synced_folder_path(basename), id: basename
+  end
+end
+
+def disable_synced_folders(ctx)
+  SyncedFolders.each do |path|
+    basename = File.basename(path)
+    ctx.vm.synced_folder path, synced_folder_path(basename), id: basename, disabled: true
+  end
+end
+
+
 Vagrant.configure("2") do |config|
   config.vmpark.env = Env
   config.vmpark.reload = true
-  SyncedFolders.each do |path|
-    basename = File.basename(path)
-    config.vm.synced_folder path, "/mnt/" + basename, id: basename
-  end
+
+  enable_synced_folders(config)
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = Memory
@@ -626,10 +644,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 27 Atomic Workstation" do |box|
@@ -640,10 +655,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 28 Atomic Workstation" do |box|
@@ -654,10 +666,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 29 Silverblue" do |box|
@@ -668,10 +677,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 30 Silverblue" do |box|
@@ -682,10 +688,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 31 Silverblue" do |box|
@@ -696,10 +699,7 @@ Vagrant.configure("2") do |config|
       "autologin-gdm.sh",
     ]
 
-    SyncedFolders.each do |path|
-      basename = File.basename(path)
-      box.vm.synced_folder path, "/" + basename, id: basename, disabled: true
-    end
+    disable_synced_folders(box)
   end
 
   config.vm.define "Fedora 32 Silverblue" do |box|
