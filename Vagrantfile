@@ -811,6 +811,7 @@ Vagrant.configure("2") do |config|
     ]
 
     box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
+    disable_synced_folders(box)
   end
 
   config.vm.define "openSUSE Leap 15" do |box|
@@ -822,8 +823,6 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-opensuse.sh",
     ]
-
-    box.vm.synced_folder ".", "/vagrant", id: "vagrant-root", type: :rsync
   end
 
 
