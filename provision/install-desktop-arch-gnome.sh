@@ -1,2 +1,3 @@
 #!/bin/sh
-pacman --noconfirm -Sy gnome gnome-extra
+pacman --noconfirm -Su
+pacman --noconfirm -Sy gnome
