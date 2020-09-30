@@ -853,6 +853,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "Arch Linux" do |box|
     box.vm.box = "roboxes/arch"
     box.vm.provision :vmpark, scripts: [
+      "arch-system-upgrade.sh",
+      "set-root-password.sh",
       "install-desktop-arch-gnome.sh",
       "systemd-graphical-target.sh",
       "systemd-enable-gdm.sh",
