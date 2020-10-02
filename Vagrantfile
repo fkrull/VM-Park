@@ -862,6 +862,8 @@ Vagrant.configure("2") do |config|
       "timezone.sh",
       "autologin-gdm.sh",
     ]
+
+    box.vm.synced_folder ".", "/vagrant"
   end
 
 
