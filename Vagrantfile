@@ -439,7 +439,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Debian 10 (32 bit)" do |box|
-    box.vm.box = "bento/debian-10.2-i386"
+    box.vm.box = "bento/debian-10.5-i386"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -476,7 +476,7 @@ Vagrant.configure("2") do |config|
 
   # Raspberry Pi Desktop
   config.vm.define "Raspberry Pi Desktop (Stretch)" do |box|
-    box.vm.box = "bento/debian-9.11-i386"
+    box.vm.box = "bento/debian-9"
     box.vm.hostname = "raspberry"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -487,8 +487,8 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Raspberry Pi Desktop" do |box|
-    box.vm.box = "bento/debian-10.2-i386"
+  config.vm.define "Raspberry Pi Desktop (Buster)" do |box|
+    box.vm.box = "bento/debian-10"
     box.vm.hostname = "raspberry"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
