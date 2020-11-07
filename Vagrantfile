@@ -368,7 +368,7 @@ Vagrant.configure("2") do |config|
 
   # KDE neon
   config.vm.define "KDE neon" do |box|
-    box.vm.box = "bento/ubuntu-18.04"
+    box.vm.box = "bento/ubuntu-20.04"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
