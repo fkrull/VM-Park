@@ -475,7 +475,7 @@ Vagrant.configure("2") do |config|
 
 
   # Raspberry Pi Desktop
-  config.vm.define "Raspberry Pi Desktop (Stretch)" do |box|
+  config.vm.define "Raspberry Pi Desktop 9" do |box|
     box.vm.box = "bento/debian-9"
     box.vm.hostname = "raspberry"
     box.vm.provision :vmpark, scripts: [
@@ -487,7 +487,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Raspberry Pi Desktop (Buster)" do |box|
+  config.vm.define "Raspberry Pi Desktop 10" do |box|
     box.vm.box = "bento/debian-10"
     box.vm.hostname = "raspberry"
     box.vm.provision :vmpark, scripts: [
@@ -501,7 +501,7 @@ Vagrant.configure("2") do |config|
 
 
   # Fedora
-  config.vm.define "Fedora 24" do |box|
+  config.vm.define "Fedora Workstation 24" do |box|
     box.vm.box = "bento/fedora-24"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -513,7 +513,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 25" do |box|
+  config.vm.define "Fedora Workstation 25" do |box|
     box.vm.box = "bento/fedora-25"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -525,7 +525,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 26" do |box|
+  config.vm.define "Fedora Workstation 26" do |box|
     box.vm.box = "bento/fedora-26"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -537,7 +537,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 27" do |box|
+  config.vm.define "Fedora Workstation 27" do |box|
     box.vm.box = "bento/fedora-27"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -549,7 +549,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 28" do |box|
+  config.vm.define "Fedora Workstation 28" do |box|
     box.vm.box = "bento/fedora-28"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -561,7 +561,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 29" do |box|
+  config.vm.define "Fedora Workstation 29" do |box|
     box.vm.box = "bento/fedora-29"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -573,7 +573,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 30" do |box|
+  config.vm.define "Fedora Workstation 30" do |box|
     box.vm.box = "bento/fedora-30"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -585,7 +585,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 31" do |box|
+  config.vm.define "Fedora Workstation 31" do |box|
     box.vm.box = "bento/fedora-31"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -597,7 +597,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 32" do |box|
+  config.vm.define "Fedora Workstation 32" do |box|
     box.vm.box = "bento/fedora-32"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
@@ -608,7 +608,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 33" do |box|
+  config.vm.define "Fedora Workstation 33" do |box|
     box.vm.box = "bento/fedora-32"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh 33",
@@ -621,7 +621,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora Rawhide" do |box|
+  config.vm.define "Fedora Workstation Rawhide" do |box|
     box.vm.box = "bento/fedora-latest"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh rawhide",
@@ -636,7 +636,7 @@ Vagrant.configure("2") do |config|
 
 
   # Fedora Silverblue
-  config.vm.define "Fedora 26 Atomic Workstation" do |box|
+  config.vm.define "Fedora Atomic Workstation 26" do |box|
     box.vm.box = "fkrull/fedora26-atomic-workstation"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -647,7 +647,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 27 Atomic Workstation" do |box|
+  config.vm.define "Fedora Atomic Workstation 27" do |box|
     box.vm.box = "fkrull/fedora27-atomic-workstation"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -658,7 +658,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 28 Atomic Workstation" do |box|
+  config.vm.define "Fedora Atomic Workstation 28" do |box|
     box.vm.box = "fkrull/fedora28-atomic-workstation"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -669,7 +669,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 29 Silverblue" do |box|
+  config.vm.define "Fedora Silverblue 29" do |box|
     box.vm.box = "fkrull/fedora29-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -680,7 +680,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 30 Silverblue" do |box|
+  config.vm.define "Fedora Silverblue 30" do |box|
     box.vm.box = "fkrull/fedora30-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -691,7 +691,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 31 Silverblue" do |box|
+  config.vm.define "Fedora Silverblue 31" do |box|
     box.vm.box = "fkrull/fedora31-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -702,7 +702,7 @@ Vagrant.configure("2") do |config|
     disable_synced_folders(box)
   end
 
-  config.vm.define "Fedora 32 Silverblue" do |box|
+  config.vm.define "Fedora Silverblue 32" do |box|
     box.vm.box = "fkrull/fedora32-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -711,7 +711,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora 33 Silverblue" do |box|
+  config.vm.define "Fedora Silverblue 33" do |box|
     box.vm.box = "fkrull/fedora33-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
@@ -720,7 +720,7 @@ Vagrant.configure("2") do |config|
     ]
   end
 
-  config.vm.define "Fedora Rawhide Silverblue" do |box|
+  config.vm.define "Fedora Silverblue Rawhide" do |box|
     box.vm.box = "fkrull/fedora33-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
