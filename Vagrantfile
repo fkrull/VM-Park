@@ -731,6 +731,36 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Fedora MATE
+  config.vm.define "Fedora MATE 33" do |box|
+    box.vm.box = "bento/fedora-32"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-fedora.sh 33",
+      "install-desktop-fedora-mate.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
+    ]
+  end
+
+
+  # Fedora Cinnamon
+  config.vm.define "Fedora Cinnamon 33" do |box|
+    box.vm.box = "bento/fedora-32"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-fedora.sh 33",
+      "install-desktop-fedora-cinnamon.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-lightdm.sh",
+      "fedora33+-allow-ssh-rsa.sh",
+    ]
+  end
+
+
   # CentOS
   config.vm.define "CentOS 5" do |box|
     box.vm.box = "bento/centos-5.11"
