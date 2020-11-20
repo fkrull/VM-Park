@@ -817,6 +817,18 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "CentOS Stream 8" do |box|
+    box.vm.box = "bento/centos-8"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-centos.sh 8-stream",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-centos8.sh",
+      "systemd-graphical-target.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
 
   # openSUSE
   config.vm.define "openSUSE 13" do |box|
