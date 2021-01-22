@@ -227,9 +227,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Ubuntu 20.10" do |box|
-    box.vm.box = "bento/ubuntu-20.04"
+    box.vm.box = "bento/ubuntu-20.10"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-ubuntu.sh groovy",
       "keymap-localectl.sh",
       "timezone.sh",
       "install-desktop-ubuntu.sh",
@@ -310,6 +309,18 @@ Vagrant.configure("2") do |config|
   # Ubuntu Studio
   config.vm.define "Ubuntu Studio 20.04" do |box|
     box.vm.box = "bento/ubuntu-20.04"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntustudio.sh",
+      "autologin-lightdm-ubuntu.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
+  config.vm.define "Ubuntu Studio 20.10" do |box|
+    box.vm.box = "bento/ubuntu-20.10"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
@@ -609,20 +620,18 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Workstation 33" do |box|
-    box.vm.box = "bento/fedora-32"
+    box.vm.box = "roboxes/fedora33"
     box.vm.provision :vmpark, scripts: [
-      "switch-release-fedora.sh 33",
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
-      "fedora33+-allow-ssh-rsa.sh",
     ]
   end
 
   config.vm.define "Fedora Workstation Rawhide" do |box|
-    box.vm.box = "bento/fedora-latest"
+    box.vm.box = "roboxes/fedora33"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh rawhide",
       "install-desktop-fedora.sh",
@@ -630,7 +639,6 @@ Vagrant.configure("2") do |config|
       "keymap-localectl.sh",
       "timezone.sh",
       "autologin-gdm.sh",
-      "fedora33+-allow-ssh-rsa.sh",
     ]
   end
 
