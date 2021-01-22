@@ -620,7 +620,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Workstation 33" do |box|
-    box.vm.box = "roboxes/fedora33"
+    box.vm.box = "bento/fedora-32"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -631,7 +631,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Workstation Rawhide" do |box|
-    box.vm.box = "roboxes/fedora33"
+    box.vm.box = "bento/fedora-latest"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh rawhide",
       "install-desktop-fedora.sh",
