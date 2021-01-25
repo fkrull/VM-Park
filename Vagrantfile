@@ -44,6 +44,7 @@ def synced_folder_path(basename)
 end
 
 def enable_synced_folders(ctx)
+  ctx.vm.synced_folder ".", synced_folder_path("vagrant"), id: "vagrant"
   SyncedFolders.each do |path|
     basename = File.basename(path)
     ctx.vm.synced_folder path, synced_folder_path(basename), id: basename
@@ -51,6 +52,7 @@ def enable_synced_folders(ctx)
 end
 
 def disable_synced_folders(ctx)
+  ctx.vm.synced_folder ".", synced_folder_path("vagrant"), id: "vagrant", disabled: true
   SyncedFolders.each do |path|
     basename = File.basename(path)
     ctx.vm.synced_folder path, synced_folder_path(basename), id: basename, disabled: true
@@ -620,7 +622,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Workstation 33" do |box|
-    box.vm.box = "bento/fedora-32"
+    box.vm.box = "roboxes/fedora33"
     box.vm.provision :vmpark, scripts: [
       "install-desktop-fedora.sh",
       "systemd-graphical-target.sh",
@@ -631,7 +633,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "Fedora Workstation Rawhide" do |box|
-    box.vm.box = "bento/fedora-latest"
+    box.vm.box = "roboxes/fedora33"
     box.vm.provision :vmpark, scripts: [
       "switch-release-fedora.sh rawhide",
       "install-desktop-fedora.sh",
