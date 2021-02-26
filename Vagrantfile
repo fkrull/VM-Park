@@ -658,6 +658,19 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Fedora KDE
+  config.vm.define "Fedora KDE 33" do |box|
+    box.vm.box = "roboxes/fedora33"
+    box.vm.provision :vmpark, scripts: [
+      "install-desktop-fedora-kde.sh",
+      "systemd-graphical-target.sh",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-sddm-plasma.sh",
+    ]
+  end
+
+
   # Fedora Silverblue
   config.vm.define "Fedora Atomic Workstation 26" do |box|
     box.vm.box = "fkrull/fedora26-atomic-workstation"

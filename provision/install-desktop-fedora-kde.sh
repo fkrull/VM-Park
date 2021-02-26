@@ -1,5 +1,2 @@
 #!/bin/sh
-dnf -y \
-    --exclude "kernel,kernel-core,kernel-debug,kernel-debug-core,kernel-modules,kernel-modules-extras" \
-    --allowerasing \
-    group install "KDE Plasma Workspaces"
+dnf -y group install "KDE Plasma Workspaces"
