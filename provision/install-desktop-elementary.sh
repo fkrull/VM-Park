@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 DIST=$(lsb_release -cs)
 REPO=${1:-stable}
 

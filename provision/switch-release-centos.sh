@@ -1,6 +1,4 @@
-#!/bin/sh
-set -eu
-
+#!/bin/sh -eu
 RELEASE=$1
 
 dnf -y upgrade --releasever=$RELEASE --nogpgcheck centos-gpg-keys centos-release centos-repos

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 mkdir -p /usr/local/etc/xdg/autostart/
 cat > /usr/local/etc/xdg/autostart/keymap.desktop <<EOF
 [Desktop Entry]

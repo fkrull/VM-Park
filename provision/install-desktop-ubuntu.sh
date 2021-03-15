@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 apt-get update
 export DEBIAN_FRONTEND=noninteractive
 apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install ubuntu-desktop

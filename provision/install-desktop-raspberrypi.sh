@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 CODENAME=$(lsb_release -cs)
 
 mkdir -p /etc/apt/sources.list.d/

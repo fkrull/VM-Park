@@ -1,6 +1,4 @@
-#!/bin/sh
-set -eu
-
+#!/bin/sh -eu
 RELEASE=$1
 
 REMOTE=fedora

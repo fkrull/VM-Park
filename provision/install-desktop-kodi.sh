@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 apt-get update
 apt-get install -y software-properties-common
 add-apt-repository ppa:team-xbmc/ppa

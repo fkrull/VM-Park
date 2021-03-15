@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 mkdir -p /etc/lightdm
 cat > /etc/lightdm/lightdm.conf <<EOF
 [Seat:*]

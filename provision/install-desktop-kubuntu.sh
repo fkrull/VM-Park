@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 cat | debconf-set-selections <<EOF
 encfs encfs/security-information note
 EOF

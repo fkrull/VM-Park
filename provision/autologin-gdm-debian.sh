@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 mkdir -p /etc/gdm3
 tee /etc/gdm3/custom.conf /etc/gdm3/daemon.conf <<EOF
 [daemon]

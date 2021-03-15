@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 NEW=$1
 
 cat > /etc/apt/apt.conf <<EOF

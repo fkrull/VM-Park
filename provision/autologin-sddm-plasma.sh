@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 cat > /etc/sddm.conf <<EOF
 [Autologin]
 User=vagrant

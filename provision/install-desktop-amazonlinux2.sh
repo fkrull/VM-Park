@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 yum update -y
 amazon-linux-extras install epel mate-desktop1.x
 yum install -y \

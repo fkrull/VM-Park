@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 tasksel install desktop

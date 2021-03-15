@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 mkdir -p /etc/gconf/gconf.xml.defaults/
 cat > /etc/gconf/gconf.xml.mandatory/%gconf-tree.xml <<EOF
 <?xml version="1.0"?>

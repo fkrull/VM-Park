@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 groupadd -f nopasswdlogin
 usermod -a -G nopasswdlogin vagrant
 mkdir -p /etc/lightdm

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 apk add tzdata
 
 setup-xorg-base xf86-video-vesa xf86-input-mouse xf86-input-keyboard

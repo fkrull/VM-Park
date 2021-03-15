@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 zypper modifyrepo --disable distro-update-oss distro-update-non-oss
 zypper refresh
 zypper --non-interactive install --auto-agree-with-licenses -t pattern \

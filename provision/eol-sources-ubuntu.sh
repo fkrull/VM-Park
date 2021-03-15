@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 CODENAME=$(lsb_release -cs)
 cat > /etc/apt/sources.list <<EOF
 deb http://old-releases.ubuntu.com/ubuntu/ $CODENAME main restricted universe multiverse

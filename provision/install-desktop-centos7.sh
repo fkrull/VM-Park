@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 yum --exclude kernel,kmod-kvdo,vdo groupinstall -y \
     "GNOME Desktop" \
     "Backup Client" \

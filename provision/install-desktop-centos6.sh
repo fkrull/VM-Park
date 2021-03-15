@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 yum groupinstall -y \
     "Base" \
     "Debugging Tools" \

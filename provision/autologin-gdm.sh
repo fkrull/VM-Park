@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 mkdir -p /etc/gdm
 cat > /etc/gdm/custom.conf <<EOF
 [daemon]
