@@ -772,6 +772,18 @@ Vagrant.configure("2") do |config|
   end
 
 
+  # Fedora Kinoite
+  config.vm.define "Fedora Kinoite 33" do |box|
+    box.vm.box = "fkrull/fedora33-silverblue"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-fedora-kinoite.sh",
+      "autologin-sddm-plasma.sh",
+    ]
+  end
+
+
   # CentOS
   config.vm.define "CentOS 5" do |box|
     box.vm.box = "bento/centos-5.11"
