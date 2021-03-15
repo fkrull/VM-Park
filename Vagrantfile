@@ -113,6 +113,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-lightdm-ubuntu.sh",
       "set-root-password.sh",
@@ -160,6 +161,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "ubuntu1710-workaround-nm-issue.sh",
       "install-desktop-ubuntu.sh",
       "autologin-gdm-debian.sh",
@@ -185,6 +187,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-gdm-debian.sh",
       "ubuntu-fix-locale.sh",
@@ -197,6 +200,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-gdm-debian.sh",
       "ubuntu-fix-locale.sh",
@@ -209,6 +213,7 @@ Vagrant.configure("2") do |config|
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
+      "eol-sources-ubuntu.sh",
       "install-desktop-ubuntu.sh",
       "autologin-gdm-debian.sh",
       "ubuntu-fix-locale.sh",
