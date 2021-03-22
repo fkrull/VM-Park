@@ -761,8 +761,17 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Fedora Silverblue 34" do |box|
+    box.vm.box = "fkrull/fedora34-silverblue"
+    box.vm.provision :vmpark, scripts: [
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "autologin-gdm.sh",
+    ]
+  end
+
   config.vm.define "Fedora Silverblue Rawhide" do |box|
-    box.vm.box = "fkrull/fedora33-silverblue"
+    box.vm.box = "fkrull/fedora34-silverblue"
     box.vm.provision :vmpark, scripts: [
       "keymap-localectl.sh",
       "timezone.sh",
