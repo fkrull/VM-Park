@@ -245,6 +245,19 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+  config.vm.define "Ubuntu 21.04" do |box|
+    box.vm.box = "roboxes/ubuntu2010"
+    box.vm.provision :vmpark, scripts: [
+      "switch-release-ubuntu.sh hirsute",
+      "keymap-localectl.sh",
+      "timezone.sh",
+      "install-desktop-ubuntu.sh",
+      "autologin-gdm-debian.sh",
+      "ubuntu-fix-locale.sh",
+      "set-root-password.sh",
+    ]
+  end
+
 
   # Xubuntu
   config.vm.define "Xubuntu 20.04" do |box|
