@@ -1,3 +1,6 @@
+| :exclamation: This repository has moved to https://gitlab.com/fkrull/VM-Park |
+|------------------------------------------------------------------------------|
+
 # The Virtual Machine Park
 
 [![Build Status](https://travis-ci.org/fkrull/VM-Park.svg?branch=main)](https://travis-ci.org/fkrull/VM-Park)
